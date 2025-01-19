@@ -1,0 +1,15 @@
+E:\Documents\DotNet\TodoList\TodoList\bin\Debug\net8.0\TodoList.exe
+E:\Documents\DotNet\TodoList\TodoList\bin\Debug\net8.0\TodoList.deps.json
+E:\Documents\DotNet\TodoList\TodoList\bin\Debug\net8.0\TodoList.runtimeconfig.json
+E:\Documents\DotNet\TodoList\TodoList\bin\Debug\net8.0\TodoList.dll
+E:\Documents\DotNet\TodoList\TodoList\bin\Debug\net8.0\TodoList.pdb
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.AssemblyInfoInputs.cache
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.AssemblyInfo.cs
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.sourcelink.json
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.dll
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\refint\TodoList.dll
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.pdb
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\TodoList.genruntimeconfig.cache
+E:\Documents\DotNet\TodoList\TodoList\obj\Debug\net8.0\ref\TodoList.dll
