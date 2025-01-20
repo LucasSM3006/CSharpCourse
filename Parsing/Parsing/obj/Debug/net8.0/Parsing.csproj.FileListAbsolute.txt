@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Parsing\Parsing\bin\Debug\net8.0\Parsing.exe
+E:\Documents\DotNet\Parsing\Parsing\bin\Debug\net8.0\Parsing.deps.json
+E:\Documents\DotNet\Parsing\Parsing\bin\Debug\net8.0\Parsing.runtimeconfig.json
+E:\Documents\DotNet\Parsing\Parsing\bin\Debug\net8.0\Parsing.dll
+E:\Documents\DotNet\Parsing\Parsing\bin\Debug\net8.0\Parsing.pdb
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.AssemblyInfo.cs
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.sourcelink.json
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.dll
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\refint\Parsing.dll
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.pdb
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\Parsing.genruntimeconfig.cache
+E:\Documents\DotNet\Parsing\Parsing\obj\Debug\net8.0\ref\Parsing.dll
