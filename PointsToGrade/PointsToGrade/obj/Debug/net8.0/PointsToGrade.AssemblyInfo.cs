@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PointsToGrade")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b79760b8dbd71157ea1cacb703ef4cad43936514")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+587b561f0f0ecb3ebef1fd2f663621b385991e2e")]
 [assembly: System.Reflection.AssemblyProductAttribute("PointsToGrade")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PointsToGrade")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
