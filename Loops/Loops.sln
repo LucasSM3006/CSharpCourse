@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loops", "Loops\Loops.csproj", "{098C04C9-7EF0-49B4-9EB9-4E93A8F26E69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "While", "While\While.csproj", "{0D6EA477-A30C-4177-9440-83948E61868D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "While", "While\While.csproj", "{0D6EA477-A30C-4177-9440-83948E61868D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoWhile", "DoWhile\DoWhile.csproj", "{C4799E64-F292-4E6D-BCB3-DB05891AEAB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0D6EA477-A30C-4177-9440-83948E61868D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D6EA477-A30C-4177-9440-83948E61868D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D6EA477-A30C-4177-9440-83948E61868D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4799E64-F292-4E6D-BCB3-DB05891AEAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4799E64-F292-4E6D-BCB3-DB05891AEAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4799E64-F292-4E6D-BCB3-DB05891AEAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4799E64-F292-4E6D-BCB3-DB05891AEAB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
