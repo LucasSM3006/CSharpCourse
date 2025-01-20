@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Loops\While\bin\Debug\net8.0\While.exe
+E:\Documents\DotNet\Loops\While\bin\Debug\net8.0\While.deps.json
+E:\Documents\DotNet\Loops\While\bin\Debug\net8.0\While.runtimeconfig.json
+E:\Documents\DotNet\Loops\While\bin\Debug\net8.0\While.dll
+E:\Documents\DotNet\Loops\While\bin\Debug\net8.0\While.pdb
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.AssemblyInfo.cs
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.sourcelink.json
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.dll
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\refint\While.dll
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.pdb
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\While.genruntimeconfig.cache
+E:\Documents\DotNet\Loops\While\obj\Debug\net8.0\ref\While.dll
