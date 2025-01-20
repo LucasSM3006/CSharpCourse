@@ -1,0 +1,5 @@
+E:\Documents\DotNet\Exercise7\Exercise7\obj\Debug\net8.0\Exercise7.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Exercise7\Exercise7\obj\Debug\net8.0\Exercise7.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Exercise7\Exercise7\obj\Debug\net8.0\Exercise7.AssemblyInfo.cs
+E:\Documents\DotNet\Exercise7\Exercise7\obj\Debug\net8.0\Exercise7.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Exercise7\Exercise7\obj\Debug\net8.0\Exercise7.sourcelink.json
