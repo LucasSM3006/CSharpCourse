@@ -9,16 +9,23 @@ Console.WriteLine("[E]xit");
 
 string userChoice = Console.ReadLine();
 
-if(userChoice == "S") {
-    printSelectedOption("See all TODOs");
-} else if (userChoice == "A") {
-    printSelectedOption("Add a TODO");
-} else if (userChoice == "R") {
-    printSelectedOption("Remove a TODO");
-} else if (userChoice == "E") {
-    printSelectedOption("Exit");
-} else {
-    printSelectedOption("Invalid option.");
+switch (userChoice)
+{
+    case "S":
+        printSelectedOption("See all TODOs");
+        break;
+    case "A":
+        printSelectedOption("Add a TODO");
+        break;
+    case "R":
+        printSelectedOption("Remove a TODO");
+        break;
+    case "E":
+        printSelectedOption("Exit");
+        break;
+    default:
+        printSelectedOption("Invalid option.");
+        break;
 }
 
 void printSelectedOption(string selectedOption)
