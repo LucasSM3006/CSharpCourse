@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Loops\DoWhileContinue\bin\Debug\net8.0\DoWhileContinue.exe
+E:\Documents\DotNet\Loops\DoWhileContinue\bin\Debug\net8.0\DoWhileContinue.deps.json
+E:\Documents\DotNet\Loops\DoWhileContinue\bin\Debug\net8.0\DoWhileContinue.runtimeconfig.json
+E:\Documents\DotNet\Loops\DoWhileContinue\bin\Debug\net8.0\DoWhileContinue.dll
+E:\Documents\DotNet\Loops\DoWhileContinue\bin\Debug\net8.0\DoWhileContinue.pdb
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.AssemblyInfo.cs
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.sourcelink.json
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.dll
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\refint\DoWhileContinue.dll
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.pdb
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\DoWhileContinue.genruntimeconfig.cache
+E:\Documents\DotNet\Loops\DoWhileContinue\obj\Debug\net8.0\ref\DoWhileContinue.dll

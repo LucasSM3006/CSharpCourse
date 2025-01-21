@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Loops\ForLoop\bin\Debug\net8.0\ForLoop.exe
+E:\Documents\DotNet\Loops\ForLoop\bin\Debug\net8.0\ForLoop.deps.json
+E:\Documents\DotNet\Loops\ForLoop\bin\Debug\net8.0\ForLoop.runtimeconfig.json
+E:\Documents\DotNet\Loops\ForLoop\bin\Debug\net8.0\ForLoop.dll
+E:\Documents\DotNet\Loops\ForLoop\bin\Debug\net8.0\ForLoop.pdb
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.AssemblyInfo.cs
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.sourcelink.json
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.dll
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\refint\ForLoop.dll
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.pdb
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ForLoop.genruntimeconfig.cache
+E:\Documents\DotNet\Loops\ForLoop\obj\Debug\net8.0\ref\ForLoop.dll

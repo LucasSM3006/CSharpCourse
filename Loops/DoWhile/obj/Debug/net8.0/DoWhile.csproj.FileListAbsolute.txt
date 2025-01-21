@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Loops\DoWhile\bin\Debug\net8.0\DoWhile.exe
+E:\Documents\DotNet\Loops\DoWhile\bin\Debug\net8.0\DoWhile.deps.json
+E:\Documents\DotNet\Loops\DoWhile\bin\Debug\net8.0\DoWhile.runtimeconfig.json
+E:\Documents\DotNet\Loops\DoWhile\bin\Debug\net8.0\DoWhile.dll
+E:\Documents\DotNet\Loops\DoWhile\bin\Debug\net8.0\DoWhile.pdb
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.AssemblyInfo.cs
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.sourcelink.json
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.dll
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\refint\DoWhile.dll
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.pdb
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\DoWhile.genruntimeconfig.cache
+E:\Documents\DotNet\Loops\DoWhile\obj\Debug\net8.0\ref\DoWhile.dll
