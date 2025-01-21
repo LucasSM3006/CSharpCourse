@@ -1,0 +1,15 @@
+E:\Documents\DotNet\2DArrays\2DArrays\bin\Debug\net8.0\2DArrays.exe
+E:\Documents\DotNet\2DArrays\2DArrays\bin\Debug\net8.0\2DArrays.deps.json
+E:\Documents\DotNet\2DArrays\2DArrays\bin\Debug\net8.0\2DArrays.runtimeconfig.json
+E:\Documents\DotNet\2DArrays\2DArrays\bin\Debug\net8.0\2DArrays.dll
+E:\Documents\DotNet\2DArrays\2DArrays\bin\Debug\net8.0\2DArrays.pdb
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.AssemblyInfoInputs.cache
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.AssemblyInfo.cs
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.sourcelink.json
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.dll
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\refint\2DArrays.dll
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.pdb
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\2DArrays.genruntimeconfig.cache
+E:\Documents\DotNet\2DArrays\2DArrays\obj\Debug\net8.0\ref\2DArrays.dll
