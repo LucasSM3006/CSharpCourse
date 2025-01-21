@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Arrays\Arrays\bin\Debug\net8.0\Arrays.exe
+E:\Documents\DotNet\Arrays\Arrays\bin\Debug\net8.0\Arrays.deps.json
+E:\Documents\DotNet\Arrays\Arrays\bin\Debug\net8.0\Arrays.runtimeconfig.json
+E:\Documents\DotNet\Arrays\Arrays\bin\Debug\net8.0\Arrays.dll
+E:\Documents\DotNet\Arrays\Arrays\bin\Debug\net8.0\Arrays.pdb
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.AssemblyInfo.cs
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.sourcelink.json
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.dll
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\refint\Arrays.dll
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.pdb
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\Arrays.genruntimeconfig.cache
+E:\Documents\DotNet\Arrays\Arrays\obj\Debug\net8.0\ref\Arrays.dll
