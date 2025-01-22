@@ -1,0 +1,15 @@
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\bin\Debug\net8.0\ExpressionBodiedMethods.exe
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\bin\Debug\net8.0\ExpressionBodiedMethods.deps.json
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\bin\Debug\net8.0\ExpressionBodiedMethods.runtimeconfig.json
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\bin\Debug\net8.0\ExpressionBodiedMethods.dll
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\bin\Debug\net8.0\ExpressionBodiedMethods.pdb
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.AssemblyInfoInputs.cache
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.AssemblyInfo.cs
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.sourcelink.json
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.dll
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\refint\ExpressionBodiedMethods.dll
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.pdb
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ExpressionBodiedMethods.genruntimeconfig.cache
+E:\Documents\DotNet\ExpressionBodiedMethods\ExpressionBodiedMethods\obj\Debug\net8.0\ref\ExpressionBodiedMethods.dll
