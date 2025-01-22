@@ -1,0 +1,15 @@
+E:\Documents\DotNet\TryParse\TryParse\bin\Debug\net8.0\TryParse.exe
+E:\Documents\DotNet\TryParse\TryParse\bin\Debug\net8.0\TryParse.deps.json
+E:\Documents\DotNet\TryParse\TryParse\bin\Debug\net8.0\TryParse.runtimeconfig.json
+E:\Documents\DotNet\TryParse\TryParse\bin\Debug\net8.0\TryParse.dll
+E:\Documents\DotNet\TryParse\TryParse\bin\Debug\net8.0\TryParse.pdb
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.AssemblyInfoInputs.cache
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.AssemblyInfo.cs
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.sourcelink.json
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.dll
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\refint\TryParse.dll
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.pdb
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\TryParse.genruntimeconfig.cache
+E:\Documents\DotNet\TryParse\TryParse\obj\Debug\net8.0\ref\TryParse.dll
