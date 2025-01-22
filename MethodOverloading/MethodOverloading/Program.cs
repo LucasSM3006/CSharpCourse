@@ -4,7 +4,7 @@
 appointment.reschedule(new DateTime(2025, 4, 3));
 
 // Overwrite month and day
-appointment.reschedule(12, 2);
+appointment.overwriteMonthAndDay(12, 2);
 
 
 public class MedicalAppointment
@@ -23,7 +23,7 @@ public class MedicalAppointment
         _date = date;
     }
 
-    public void reschedule(int month, int day)
+    public void overwriteMonthAndDay(int month, int day)
     {
         _date = new DateTime(_date.Year, month, day);
     }
