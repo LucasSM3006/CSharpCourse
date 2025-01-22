@@ -1,0 +1,15 @@
+E:\Documents\DotNet\MainMethod\MainMethod\bin\Debug\net8.0\MainMethod.exe
+E:\Documents\DotNet\MainMethod\MainMethod\bin\Debug\net8.0\MainMethod.deps.json
+E:\Documents\DotNet\MainMethod\MainMethod\bin\Debug\net8.0\MainMethod.runtimeconfig.json
+E:\Documents\DotNet\MainMethod\MainMethod\bin\Debug\net8.0\MainMethod.dll
+E:\Documents\DotNet\MainMethod\MainMethod\bin\Debug\net8.0\MainMethod.pdb
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.AssemblyInfoInputs.cache
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.AssemblyInfo.cs
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.sourcelink.json
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.dll
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\refint\MainMethod.dll
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.pdb
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\MainMethod.genruntimeconfig.cache
+E:\Documents\DotNet\MainMethod\MainMethod\obj\Debug\net8.0\ref\MainMethod.dll
