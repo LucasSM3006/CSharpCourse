@@ -20,6 +20,12 @@ rectangle1.setHeight(222);
 Console.WriteLine($"Rectangle1's width: {rectangle1.getWidth()}");
 Console.WriteLine($"Rectrangle1's height: {rectangle1.getHeight()}");
 
+Console.WriteLine($"Rectangle0's area: {rectangle.calculateArea()}");
+Console.WriteLine($"Rectangle1's area: {rectangle1.calculateArea()}");
+
+Console.WriteLine($"Rectangle0's circumference: {rectangle.calculateCircumference()}");
+Console.WriteLine($"Rectangle1's circumference: {rectangle1.calculateCircumference()}");
+
 Console.ReadKey();
 
 class Rectangle
@@ -31,6 +37,16 @@ class Rectangle
     {
         _width = width;
         _height = height;
+    }
+
+    public int calculateCircumference()
+    {
+        return 2 * _width + 2 * _height;
+    }
+
+    public int calculateArea()
+    {
+        return _width * _height;
     }
 
     public void setWidth(int width)
