@@ -1,0 +1,15 @@
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\bin\Debug\net8.0\ThisKeyword.exe
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\bin\Debug\net8.0\ThisKeyword.deps.json
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\bin\Debug\net8.0\ThisKeyword.runtimeconfig.json
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\bin\Debug\net8.0\ThisKeyword.dll
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\bin\Debug\net8.0\ThisKeyword.pdb
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.AssemblyInfoInputs.cache
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.AssemblyInfo.cs
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.sourcelink.json
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.dll
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\refint\ThisKeyword.dll
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.pdb
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ThisKeyword.genruntimeconfig.cache
+E:\Documents\DotNet\ThisKeyword\ThisKeyword\obj\Debug\net8.0\ref\ThisKeyword.dll
