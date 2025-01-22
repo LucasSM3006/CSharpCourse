@@ -27,4 +27,12 @@ public class MedicalAppointment
     {
         _date = new DateTime(_date.Year, month, day);
     }
+
+    public void moveByMonthsAndDays(int monthsToAdd, int daysToAdd)
+    {
+        _date = new DateTime(
+            _date.Year,
+            _date.Month + monthsToAdd,
+            _date.Day + daysToAdd);
+    }
 }
