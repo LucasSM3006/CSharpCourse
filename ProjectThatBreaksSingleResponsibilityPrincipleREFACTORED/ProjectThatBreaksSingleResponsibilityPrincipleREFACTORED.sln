@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectThatBreaksSingleResponsibilityPrincipleREFACTORED", "ProjectThatBreaksSingleResponsibilityPrincipleREFACTORED\ProjectThatBreaksSingleResponsibilityPrincipleREFACTORED.csproj", "{ACF80A26-45BD-4447-995D-6B882A318144}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACF80A26-45BD-4447-995D-6B882A318144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACF80A26-45BD-4447-995D-6B882A318144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACF80A26-45BD-4447-995D-6B882A318144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACF80A26-45BD-4447-995D-6B882A318144}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A87C369-C6AE-41B0-87C7-75284B19C5ED}
+	EndGlobalSection
+EndGlobal
