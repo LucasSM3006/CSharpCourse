@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Diagnostics;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+// Those can be commented above, as they are technically globals.
 
 // There's no 'using System.Diagnostics;' here because it's declared on Program.cs as a global usage.
 
