@@ -12,18 +12,31 @@ Your job is only to add the definitions of those two properties. If needed, you 
  */
 
 using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Coding.Exercise
+public class Order
 {
-    public class Order
+    private DateTime _date;
+    public string Item
     {
-        //your code goes here
+        get;
+        private set;
+    }
 
-        public Order(string item, DateTime date)
+    public Order(string item, DateTime date)
+    {
+        Item = item;
+        Date = date;
+    }
+
+    public DateTime Date
+    {
+        get => _date;
+        set
         {
-            Item = item;
-            Date = date;
+            if (DateTime.Now.Year == value.Year)
+            {
+                _date = value;
+            }
         }
     }
 }
