@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectThatBreaksSingleResponsibilityPrincipleREFACTORED")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26ea9776efd9a6e3eae3d1568c0947e4e9ac6e2e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc5c9341f877138d3de89477a1231f3e8642d895")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectThatBreaksSingleResponsibilityPrincipleREFACTORED")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectThatBreaksSingleResponsibilityPrincipleREFACTORED")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

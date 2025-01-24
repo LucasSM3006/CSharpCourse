@@ -1,6 +1,7 @@
 ﻿var names = new Names();
-var path = names.BuildFilePath();
+var path = new NamesFilePath().BuildFilePath();
 var stringsFromTextRepo = new FileRepository();
+var namesFormatter = new NamesFormatter();
 
 if (File.Exists(path))
 {
@@ -21,7 +22,7 @@ else
     Console.WriteLine("Saving names to the file.");
     stringsFromTextRepo.Write(path, names.All);
 }
-Console.WriteLine(names.Format());
+Console.WriteLine(namesFormatter.Format(names.All));
 
 Console.ReadLine();
 
@@ -46,14 +47,14 @@ public class Names
             All.Add(name);
         }
     }
+}
 
+public class NamesFilePath
+{
     public string BuildFilePath()
     {
         return "name.txt";
     }
-
-    public string Format() =>
-        string.Join(Environment.NewLine, All);
 }
 
 public class NamesValidator
@@ -66,6 +67,13 @@ public class NamesValidator
             char.IsUpper(name[0]) &&
             name.All(char.IsLetter);
     }
+}
+
+public class NamesFormatter
+{
+    // Format is a different method to that of "Write" from FileRepo because Format's implementation is for the Console.WriteLine() method. "Write" will put things into a text file.
+    public string Format(List<string> names) =>
+    string.Join(Environment.NewLine, names);
 }
 
 public class FileRepository
