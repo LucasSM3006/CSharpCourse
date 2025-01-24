@@ -1,0 +1,15 @@
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\bin\Debug\net8.0\GlobalDirectives.exe
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\bin\Debug\net8.0\GlobalDirectives.deps.json
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\bin\Debug\net8.0\GlobalDirectives.runtimeconfig.json
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\bin\Debug\net8.0\GlobalDirectives.dll
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\bin\Debug\net8.0\GlobalDirectives.pdb
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.AssemblyInfoInputs.cache
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.AssemblyInfo.cs
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.sourcelink.json
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.dll
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\refint\GlobalDirectives.dll
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.pdb
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\GlobalDirectives.genruntimeconfig.cache
+E:\Documents\DotNet\GlobalDirectives\GlobalDirectives\obj\Debug\net8.0\ref\GlobalDirectives.dll
