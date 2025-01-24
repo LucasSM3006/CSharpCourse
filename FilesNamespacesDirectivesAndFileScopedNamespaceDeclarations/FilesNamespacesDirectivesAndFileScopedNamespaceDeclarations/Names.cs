@@ -1,25 +1,24 @@
-﻿namespace FilesNamespacesDirectivesAndFileScopedNamespaceDeclarations
+﻿namespace FilesNamespacesDirectivesAndFileScopedNamespaceDeclarations;
+
+public class Names
 {
-    public class Names
+    public List<string> All { get; } = new List<string>();
+
+    private NamesValidator _validator = new NamesValidator();
+
+    public void AddNames(List<string> names)
     {
-        public List<string> All { get; } = new List<string>();
-
-        private NamesValidator _validator = new NamesValidator();
-
-        public void AddNames(List<string> names)
+        foreach (var name in names)
         {
-            foreach (var name in names)
-            {
-                AddName(name);
-            }
+            AddName(name);
         }
+    }
 
-        public void AddName(string name)
+    public void AddName(string name)
+    {
+        if (_validator.IsValid(name))
         {
-            if (_validator.IsValid(name))
-            {
-                All.Add(name);
-            }
+            All.Add(name);
         }
     }
 }
