@@ -1,4 +1,7 @@
-﻿var names = new Names();
+﻿using FilesNamespacesDirectivesAndFileScopedNamespaceDeclarations.DataAccess;
+using FilesNamespacesDirectivesAndFileScopedNamespaceDeclarations;
+
+var names = new Names();
 var path = new NamesFilePath().BuildFilePath();
 var stringsFromTextRepo = new FileRepository();
 var namesFormatter = new NamesFormatter();
@@ -25,11 +28,3 @@ else
 Console.WriteLine(namesFormatter.Format(names.All));
 
 Console.ReadLine();
-
-public class NamesFilePath
-{
-    public string BuildFilePath()
-    {
-        return "name.txt";
-    }
-}
