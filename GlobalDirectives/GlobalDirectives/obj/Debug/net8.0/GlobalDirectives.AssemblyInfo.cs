@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GlobalDirectives")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a65d3696baa599bd2c63008b5659b6a7afb5ba6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c357afc69b58facbffeafad0aeb823e24ca1e84")]
 [assembly: System.Reflection.AssemblyProductAttribute("GlobalDirectives")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GlobalDirectives")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
