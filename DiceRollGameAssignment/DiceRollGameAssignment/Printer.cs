@@ -8,9 +8,9 @@ namespace DiceRollGameAssignment
 {
     public class GamePrinter
     {
-        public void PrintEndGame(bool result)
+        public void PrintEndGame(GameResult result)
         {
-            if (result)
+            if (result == GameResult.Win)
             {
                 Console.WriteLine($"You Win!");
             }
