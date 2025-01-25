@@ -1,8 +1,12 @@
 ﻿
 using DiceRollGameAssignment;
 
+GamePrinter gamePrinter = new GamePrinter();
 DiceGame diceGame = new DiceGame();
-diceGame.Playgame();
+
+GameResult gameResult = diceGame.Playgame();
+
+gamePrinter.PrintEndGame(gameResult);
 
 Console.ReadKey();
 
@@ -12,7 +16,7 @@ public class DiceGame
     Random randomNumberGenerator = new Random();
     GamePrinter gamePrinter = new GamePrinter();
 
-    public void Playgame()
+    public GameResult Playgame()
     {
         
         Dice dice = new Dice(6, randomNumberGenerator); // Number of sides the dice has.
@@ -30,13 +34,12 @@ public class DiceGame
 
             if (guess == randomNumber)
             {
-                win = true;
-                break;
+                return GameResult.Win;
             }
 
-            Console.WriteLine("Wrong number, try again!");
+            Console.WriteLine("Wrong number.");
         }
 
-        gamePrinter.PrintEndGame(win);
+        return GameResult.Loss;
     }
 }
