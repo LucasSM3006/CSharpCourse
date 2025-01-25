@@ -1,69 +1,42 @@
 ﻿
-Random randomMaker = new Random();
+using DiceRollGameAssignment;
 
-const int NumberOfTries = 3;
-int diceNumber = randomMaker.Next(1, 7);
-bool win = false;
-
-//for(int i = 0; i < 100; i++)
-//{
-//    Console.WriteLine($"Random number generated: {randomMaker.Next(1, 7)}");
-//}
-
-Console.WriteLine($"Dice Rolled. Guess what number it was in 3 tries.");
-
-
-
-for(int i = 1; i <= NumberOfTries; i++)
-{
-    Console.WriteLine($"Current trial: {i}");
-    Console.WriteLine("Enter your guess: ");
-
-    string userInput = Console.ReadLine();
-
-    int actualNumber;
-    bool isParsingSuccessful = int.TryParse(userInput, out actualNumber);
-
-    if(!isParsingSuccessful)
-    {
-        Console.WriteLine("Invalid parsing, try again.");
-        i--;
-        continue;
-    }
-
-    if(actualNumber > 6)
-    {
-        Console.WriteLine("Out of range. Choose between 1 to 6");
-        i--;
-        continue;
-    }
-
-    if(actualNumber == diceNumber)
-    {
-        win = true;
-        break;
-    }
-
-    Console.WriteLine("Wrong number, try again!");
-}
-
-if(win)
-{
-    PrintEndGame("win");
-}
-else
-{
-    PrintEndGame("lose");
-}
+DiceGame diceGame = new DiceGame();
+diceGame.Playgame();
 
 Console.ReadKey();
 
-
-void PrintEndGame(string result)
+public class DiceGame
 {
-    Console.WriteLine($"You {result}!");
-}
-//do
-//{
+    const int NumberOfTries = 3;
+    Random randomNumberGenerator = new Random();
+    GamePrinter gamePrinter = new GamePrinter();
 
-//} while (true);
+    public void Playgame()
+    {
+        
+        Dice dice = new Dice(6, randomNumberGenerator); // Number of sides the dice has.
+        int numberOfSides = dice.GetSides();
+        int randomNumber = dice.RollDice();
+        bool win = false;
+
+        gamePrinter.PrintStartGame($"Dice with {numberOfSides} sides rolled. You have {NumberOfTries} tries to guess the number it landed on.");
+
+        for (int i = 1; i <= NumberOfTries; i++)
+        {
+            Console.WriteLine($"Current trial: {i}");
+
+            int guess = ConsoleReader.ReadInteger("Enter your guess: ");
+
+            if (guess == randomNumber)
+            {
+                win = true;
+                break;
+            }
+
+            Console.WriteLine("Wrong number, try again!");
+        }
+
+        gamePrinter.PrintEndGame(win);
+    }
+}
