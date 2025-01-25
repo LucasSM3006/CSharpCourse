@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceRollGameAssignment
+namespace DiceRollGameAssignment.Game
 {
     public class Dice
     {
@@ -29,7 +29,7 @@ namespace DiceRollGameAssignment
 
         public int RollDice()
         {
-            return _random.Next(1 , _numberOfSides + 1);
+            return _random.Next(1, _numberOfSides + 1);
         }
     }
 }

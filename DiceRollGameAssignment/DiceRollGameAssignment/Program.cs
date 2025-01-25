@@ -1,5 +1,4 @@
-﻿
-using DiceRollGameAssignment;
+﻿using DiceRollGameAssignment.Game;
 
 GamePrinter gamePrinter = new GamePrinter();
 DiceGame diceGame = new DiceGame();

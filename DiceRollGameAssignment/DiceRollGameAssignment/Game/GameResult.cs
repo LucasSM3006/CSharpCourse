@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceRollGameAssignment
+namespace DiceRollGameAssignment.Game
 {
     public enum GameResult
     {
