@@ -1,19 +1,25 @@
 ﻿
-var dealerShip = new DealerShip();
+DealerShip dealerShip = new DealerShip();
 
-var newCar = new Car();
-var newBoat = new Boat();
-var newPlane = new Plane();
+Car newCar = new Car();
+Boat newBoat = new Boat();
+Plane newPlane = new Plane();
 
 dealerShip.AddVehicle(newCar);
 dealerShip.AddVehicle(newBoat);
 dealerShip.AddVehicle(newPlane);
+
+Vehicle vehicle = new Plane();
+
+//Console.WriteLine(vehicle.Brand); // Does not work. Inheritance doesn't work upwards, only downwards. BaseClass -> SubClass -> SubSubClass
 
 Console.WriteLine(dealerShip.Display());
 
 Console.WriteLine(newCar.PublicMethod());
 
 Console.WriteLine(newBoat.PublicMethod());
+
+Console.WriteLine(newBoat.Brand);
 
 Console.ReadKey();
 
@@ -44,6 +50,8 @@ public class Plane : Vehicle
 {
     double _wingSize;
 
+    public string Brand => "General Electric";
+
     public void UseFromBaseClass()
     {
         Console.WriteLine(PublicMethod());
@@ -54,9 +62,13 @@ public class Plane : Vehicle
 public class Car : Vehicle
 {
     double _wheelBase;
+
+    public string Brand => "Ford";
 }
 
 public class Boat : Vehicle
 {
     double _propellerSize;
+
+    public string Brand => "Boat Brand";
 }
