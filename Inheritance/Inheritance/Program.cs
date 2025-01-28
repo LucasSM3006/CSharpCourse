@@ -11,6 +11,10 @@ dealerShip.AddVehicle(newPlane);
 
 Console.WriteLine(dealerShip.Display());
 
+Console.WriteLine(newCar.PublicMethod());
+
+Console.WriteLine(newBoat.PublicMethod());
+
 Console.ReadKey();
 
 public class DealerShip
@@ -25,11 +29,26 @@ public class DealerShip
 public class Vehicle
 {
     string _engineType;
+
+    // Public methods are inherited.
+    public string PublicMethod() => "Public method";
+
+    // Private methods aren't inherited.
+    private string PrivateMethod() => "Private method";
+
+    // Protected methods are inherited.
+    protected string ProtectedMethod() => "Protected method";
 }
 
 public class Plane : Vehicle 
 {
     double _wingSize;
+
+    public void UseFromBaseClass()
+    {
+        Console.WriteLine(PublicMethod());
+        Console.WriteLine(ProtectedMethod());
+    }
 }
 
 public class Car : Vehicle
