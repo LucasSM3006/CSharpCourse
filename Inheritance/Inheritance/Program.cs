@@ -11,13 +11,13 @@ dealerShip.AddVehicle(newPlane);
 
 Vehicle vehicle = new Plane();
 
-//Console.WriteLine(vehicle.Brand); // Does not work. Inheritance doesn't work upwards, only downwards. BaseClass -> SubClass -> SubSubClass
+Console.WriteLine(vehicle.Brand);
 
-Console.WriteLine(dealerShip.Display());
+//Console.WriteLine(dealerShip.Display());
 
-Console.WriteLine(newCar.PublicMethod());
+//Console.WriteLine(newCar.PublicMethod());
 
-Console.WriteLine(newBoat.PublicMethod());
+//Console.WriteLine(newBoat.PublicMethod());
 
 Console.WriteLine(newBoat.Brand);
 
@@ -34,7 +34,9 @@ public class DealerShip
 
 public class Vehicle
 {
-    string _engineType;
+    public string EngineType;
+
+    public virtual string Brand { get; } = "Random brand";
 
     // Public methods are inherited.
     public string PublicMethod() => "Public method";
@@ -50,7 +52,7 @@ public class Plane : Vehicle
 {
     double _wingSize;
 
-    public string Brand => "General Electric";
+    public override string Brand => "General Electric";
 
     public void UseFromBaseClass()
     {
@@ -63,12 +65,12 @@ public class Car : Vehicle
 {
     double _wheelBase;
 
-    public string Brand => "Ford";
+    public override string Brand => "Ford";
 }
 
 public class Boat : Vehicle
 {
     double _propellerSize;
 
-    public string Brand => "Boat Brand";
+    public override string Brand => "Boat Brand";
 }
