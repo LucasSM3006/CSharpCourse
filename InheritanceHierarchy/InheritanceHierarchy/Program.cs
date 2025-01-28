@@ -23,6 +23,9 @@ Vehicle newSuv = new Suv();
 
 Console.WriteLine($"Suv brand: {newSuv.Brand}");
 
+Console.WriteLine("With overriding ToString: " + new Plane());
+Console.WriteLine("Without overriding ToString: " + new Vehicle());
+
 Console.WriteLine(newBoat.Brand);
 
 List<Vehicle> list = new List<Vehicle>
@@ -75,6 +78,8 @@ public class Plane : Vehicle
         Console.WriteLine(PublicMethod());
         Console.WriteLine(ProtectedMethod());
     }
+
+    public override string ToString() => Brand;
 }
 
 public class Car : Vehicle
