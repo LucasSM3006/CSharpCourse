@@ -1,0 +1,15 @@
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\bin\Debug\net8.0\VirtualMethods.exe
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\bin\Debug\net8.0\VirtualMethods.deps.json
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\bin\Debug\net8.0\VirtualMethods.runtimeconfig.json
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\bin\Debug\net8.0\VirtualMethods.dll
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\bin\Debug\net8.0\VirtualMethods.pdb
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.AssemblyInfoInputs.cache
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.AssemblyInfo.cs
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.sourcelink.json
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.dll
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\refint\VirtualMethods.dll
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.pdb
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\VirtualMethods.genruntimeconfig.cache
+E:\Documents\DotNet\VirtualMethods\VirtualMethods\obj\Debug\net8.0\ref\VirtualMethods.dll
