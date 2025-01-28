@@ -1,4 +1,5 @@
-.vs
-.cache
-.dll
-.exe
+*.vs
+*.cache
+*.dll
+*.exe
+*.pdb
