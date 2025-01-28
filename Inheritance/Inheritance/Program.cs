@@ -9,9 +9,9 @@ dealerShip.AddVehicle(newCar);
 dealerShip.AddVehicle(newBoat);
 dealerShip.AddVehicle(newPlane);
 
-Vehicle vehicle = new Plane();
+Vehicle vehicle1 = new Plane();
 
-Console.WriteLine(vehicle.Brand);
+Console.WriteLine(vehicle1.Brand);
 
 //Console.WriteLine(dealerShip.Display());
 
@@ -20,6 +20,18 @@ Console.WriteLine(vehicle.Brand);
 //Console.WriteLine(newBoat.PublicMethod());
 
 Console.WriteLine(newBoat.Brand);
+
+List<Vehicle> list = new List<Vehicle>
+{
+    new Boat(),
+    new Plane(),
+    new Car()
+};
+
+foreach(Vehicle item in list)
+{
+    Console.WriteLine(item.Brand);
+}
 
 Console.ReadKey();
 
@@ -72,5 +84,5 @@ public class Boat : Vehicle
 {
     double _propellerSize;
 
-    public override string Brand => "Boat Brand";
+    public string Brand => "Boat Brand";
 }
