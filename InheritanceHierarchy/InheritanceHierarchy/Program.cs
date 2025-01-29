@@ -40,6 +40,10 @@ foreach (Vehicle item in list)
     Console.WriteLine(item.Brand);
 }
 
+Console.WriteLine(dealerShip.Display());
+
+Car2 car2 = new Car2();
+
 Console.ReadKey();
 
 public class DealerShip
@@ -57,6 +61,11 @@ public class Vehicle
 
     public virtual string Brand { get; } = "Random brand";
 
+    public Vehicle()
+    {
+        Console.WriteLine("Constructor of Vehicle class");
+    }
+
     // Public methods are inherited.
     public string PublicMethod() => "Public method";
 
@@ -65,6 +74,8 @@ public class Vehicle
 
     // Protected methods are inherited.
     protected string ProtectedMethod() => "Protected method";
+
+    public override string ToString() => Brand;
 }
 
 public class Plane : Vehicle
@@ -78,8 +89,16 @@ public class Plane : Vehicle
         Console.WriteLine(PublicMethod());
         Console.WriteLine(ProtectedMethod());
     }
+}
 
-    public override string ToString() => Brand;
+public class Car2 : Vehicle
+{
+    double size;
+
+    public Car2()
+    {
+        Console.WriteLine("Constructor of Car2 Class");
+    }
 }
 
 public class Car : Vehicle
