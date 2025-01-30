@@ -2,6 +2,10 @@
 
 // Only virtual methods can be sealed.
 
+Automobile automobile = new Automobile();
+
+automobile.Lol();
+
 public abstract class Vehicle
 {
     public abstract void Build();
