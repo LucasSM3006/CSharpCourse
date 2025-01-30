@@ -28,3 +28,23 @@ public sealed class SUV : Automobile
 // {
 //
 // }
+
+// This code below is to demonstrate that static classes are always sealed.
+
+public static class VehicleGenerator
+{
+    public static void Generate(int wheels)
+    {
+
+    }
+}
+
+// This generates a compiling error. Static classes cannot be instantiated, nor can they be inherited.
+// They're always sealed because they only contain static methods, and static methods cannot be overridden.
+// The entire point of overriding is to have specific implementations of a method when executing a specific instance.
+// Static methods are not called on instances since you can't instantiate them, which makes static classes useless as base types, and impossible to use.
+
+// public static class AutomobileGenerator : VehicleGenerator
+// {
+// 
+// }
