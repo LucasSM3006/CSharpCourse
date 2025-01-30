@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SealedClassesAndMethods", "SealedClassesAndMethods\SealedClassesAndMethods.csproj", "{EAC9403B-106C-4865-8DB7-70600101D027}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAC9403B-106C-4865-8DB7-70600101D027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC9403B-106C-4865-8DB7-70600101D027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC9403B-106C-4865-8DB7-70600101D027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC9403B-106C-4865-8DB7-70600101D027}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C4579B2-DFF1-4C30-AF49-18578DC300AE}
+	EndGlobalSection
+EndGlobal
