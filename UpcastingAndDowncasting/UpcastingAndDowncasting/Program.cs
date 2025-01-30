@@ -47,13 +47,15 @@
 Vehicle vehicle = new Car(100); // Upcasting. Car is a Vehicle, it makes sense.
 
 // Car car = vehicle; // Downcasting. Not every vehicle is a car.
+// How to handle the code above.
 
 Vehicle v = GenerateRandomVehicle();
 
-Console.WriteLine($"Is vehicle an object? {v is object}");
-Console.WriteLine($"Is vehicle a car? {v is Car}");
-Console.WriteLine($"Is vehicle a plane? {v is Plane}");
-Console.WriteLine($"Is vehicle a boat? {v is Boat}");
+if(v is Car)
+{
+    Car newCar = (Car)v;
+    Console.WriteLine($"New car object! {newCar}");
+}
 
 Console.ReadKey();
 
