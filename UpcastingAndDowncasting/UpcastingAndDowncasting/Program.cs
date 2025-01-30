@@ -35,7 +35,7 @@
 //    new Car(4332)
 //};
 
-//foreach (Vehicle item in list)
+//foreach (Vehicle item in list)    
 //{
 //    Console.WriteLine(item.Brand);
 //}
@@ -50,7 +50,10 @@ Vehicle vehicle = new Car(100); // Upcasting. Car is a Vehicle, it makes sense.
 
 Vehicle v = GenerateRandomVehicle();
 
-Car car = (Car) v; // Compiled, but it'll fail if 'v' isn't a car.
+Console.WriteLine($"Is vehicle an object? {v is object}");
+Console.WriteLine($"Is vehicle a car? {v is Car}");
+Console.WriteLine($"Is vehicle a plane? {v is Plane}");
+Console.WriteLine($"Is vehicle a boat? {v is Boat}");
 
 Console.ReadKey();
 
@@ -58,9 +61,9 @@ Vehicle GenerateRandomVehicle()
 {
     var random = new Random();
     var number = random.Next(1, 4);
-    if (number == 1) new Car(200);
-    if (number == 2) new Plane(5000);
-    return new Boat(3000);
+    if (number == 1) return new Car(200);
+    if (number == 2) return new Plane(5000);
+    else return new Boat(3000);
 }
 
 public class DealerShip
