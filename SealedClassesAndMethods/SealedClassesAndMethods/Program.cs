@@ -5,6 +5,7 @@
 public abstract class Vehicle
 {
     public abstract void Build();
+    public void Lol() { Console.WriteLine(""); }
 }
 
 public class Automobile : Vehicle
