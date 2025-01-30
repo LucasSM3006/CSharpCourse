@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Null\Null\bin\Debug\net8.0\Null.exe
+E:\Documents\DotNet\Null\Null\bin\Debug\net8.0\Null.deps.json
+E:\Documents\DotNet\Null\Null\bin\Debug\net8.0\Null.runtimeconfig.json
+E:\Documents\DotNet\Null\Null\bin\Debug\net8.0\Null.dll
+E:\Documents\DotNet\Null\Null\bin\Debug\net8.0\Null.pdb
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.AssemblyInfo.cs
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.sourcelink.json
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.dll
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\refint\Null.dll
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.pdb
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\Null.genruntimeconfig.cache
+E:\Documents\DotNet\Null\Null\obj\Debug\net8.0\ref\Null.dll
