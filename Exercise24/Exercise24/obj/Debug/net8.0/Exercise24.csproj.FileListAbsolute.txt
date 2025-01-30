@@ -1,0 +1,15 @@
+E:\Documents\DotNet\Exercise24\Exercise24\bin\Debug\net8.0\Exercise24.exe
+E:\Documents\DotNet\Exercise24\Exercise24\bin\Debug\net8.0\Exercise24.deps.json
+E:\Documents\DotNet\Exercise24\Exercise24\bin\Debug\net8.0\Exercise24.runtimeconfig.json
+E:\Documents\DotNet\Exercise24\Exercise24\bin\Debug\net8.0\Exercise24.dll
+E:\Documents\DotNet\Exercise24\Exercise24\bin\Debug\net8.0\Exercise24.pdb
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.AssemblyInfoInputs.cache
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.AssemblyInfo.cs
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.csproj.CoreCompileInputs.cache
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.sourcelink.json
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.dll
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\refint\Exercise24.dll
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.pdb
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\Exercise24.genruntimeconfig.cache
+E:\Documents\DotNet\Exercise24\Exercise24\obj\Debug\net8.0\ref\Exercise24.dll
