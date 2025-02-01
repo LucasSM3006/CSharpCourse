@@ -4,6 +4,7 @@
 
     public void RunProgram()
     {
+        Recipe recipe = new Recipe();
         Console.WriteLine("Select the type of format you'd prefer. (json or txt)");
         string userInput;
         bool validInput = false;
@@ -36,6 +37,8 @@
 
         PrintIngredients(availableIngredients);
 
+        validInput = true;
+
         do
         {
             Console.WriteLine("Add an ingredient by is ID or type anything else if finished");
@@ -45,11 +48,33 @@
             int id;
             validInput = int.TryParse(userInput, out id);
 
+            foreach (Ingredient ingredient in availableIngredients)
+            {
+                if (ingredient.Id == id)
+                {
+                    recipe.Add(ingredient);
+                    break;
+                }
+                Console.WriteLine("No ingredients match that ID, try again.");
+            }
+        } while (validInput == true);
 
 
-        } while (validInput == false);
+        if(recipe.isEmpty())
+        {
+            Console.WriteLine("No ingredients have been selected. The recipe will not be saved.");
+        }
+        else
+        {
+            Console.WriteLine("Recipe added: ");
 
+            Console.WriteLine(recipe.BuildRecipe());
 
+            repository.Save(recipe.GetIds());
+        }
+
+        Console.WriteLine("Press any key to exit.");
+        Console.ReadKey();
     }
 
     private List<Ingredient> MakeIngredients()
@@ -72,7 +97,7 @@
         Console.WriteLine("Printing available ingredients: ");
         foreach (Ingredient ingredient in ingredientsAvailable)
         {
-            Console.WriteLine($"{ingredient.Id}. {ingredient.Name}");
+            Console.WriteLine($"{ingredient.Id}. {ingredient.Name}\n");
         }
     }
 }
@@ -98,12 +123,35 @@ public class Recipe
     public string BuildRecipe()
     {
         string recipe = "";
+
         foreach(Ingredient ingredient in ingredients)
         {
-            recipe += $"";
+            recipe += $"{ingredient.Name}. {ingredient.Instructions()}\n";
         }
 
         return recipe;
+    }
+
+    public void Add(Ingredient ingredient)
+    {
+        ingredients.Add(ingredient);
+    }
+
+    public bool isEmpty()
+    {
+        return ingredients.Count == 0;
+    }
+
+    public string GetIds()
+    {
+        string ids = "";
+
+        foreach(Ingredient ingredient in ingredients)
+        {
+            ids += ingredient.Id;
+        }
+
+        return ids;
     }
 }
 
