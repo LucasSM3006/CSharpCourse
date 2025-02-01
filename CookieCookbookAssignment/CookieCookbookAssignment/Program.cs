@@ -16,6 +16,28 @@ public class CookiesRecipeApplication
     {
         RecipesRepository allRecipes = _recipesRepository.Load();
         _recipesUserInteraction.PrintExistingRecipes(allRecipes);
+
+        _recipesUserInteraction.PromptToCreateRecipes();
+
+        List<Ingredient> ingredients = _recipesUserInteraction.ReadIngredientsFromUser();
+
+        if(ingredients.Count > 0)
+        {
+            Recipe recipe = new Recipe(ingredients);
+
+            allRecipes.Add(recipe);
+
+            _recipesRepository.Write(filePath, allRecipes);
+
+            _recipesUserInteraction.ShowMessage("Recipe added: ");
+            _recipesUserInteraction.ShowMessage(recipe.ToString());
+        }
+        else
+        {
+            _recipesUserInteraction.ShowMessage("No ingredients added, recipe won't be saved.");
+        }
+
+        _recipesUserInteraction.Exit();
     }
 }
 
