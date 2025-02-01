@@ -1,40 +1,50 @@
-﻿string formatToSave ;
-
-
-Console.WriteLine("Select the type of format you'd prefer to store. (json or txt)");
-string userInput = Console.ReadLine();
-
-if(userInput.ToLower() == "json")
+﻿public class MainFlow
 {
-    formatToSave = "json";
-}
-else if (userInput.ToLower() == "txt")
-{
-    formatToSave = "txt";
-}
-else
-{
-    Console.WriteLine("Invalid input! Please enter either 'txt' or 'json'!");
-}
-
-public class MainFlow
-{
+    private StringTextualRepository repository;
 
     public void RunProgram()
     {
+        Console.WriteLine("Select the type of format you'd prefer. (json or txt)");
+        string userInput;
+        bool validInput = false;
+        do
+        {
+            userInput = Console.ReadLine();
 
-        if (RecipeFile.Exists) ;
+            if (userInput.ToLower() == "json")
+            {
+                repository = new RecipeRepositoryJson();
+                validInput = true;
+            }
+            else if (userInput.ToLower() == "txt")
+            {
+                repository = new RecipeRepositoryTxt();
+                validInput = true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input! Please enter either 'txt' or 'json'!");
+                validInput = false;
+            }
+        } while (validInput == false);
+
+        if (repository.Read()) ;
         Console.WriteLine();
+
+
+
     }
 }
 
 public abstract class Ingredient
 {
     public int Id { get; }
+    public string Name { get; }
 
-    public Ingredient(int id)
+    public Ingredient(int id, string name)
     {
         Id = id;
+        Name = name;
     }
 
     public abstract string Instructions();
@@ -42,7 +52,18 @@ public abstract class Ingredient
 
 public class Recipe
 {
-    List<Ingredient> ingredients;
+    public List<Ingredient> ingredients;
+
+    public string BuildRecipe()
+    {
+        string recipe = "";
+        foreach(Ingredient ingredient in ingredients)
+        {
+            recipe += $"";
+        }
+
+        return recipe;
+    }
 }
 
 public class RecipePrinter
@@ -62,38 +83,60 @@ public class StoreRecipes
 public interface StringTextualRepository
 {
     public void Save(string text);
+    public void Load(string fileName);
 }
 
-public class StringSaverJson : StringTextualRepository
+public class RecipeRepositoryJson : StringTextualRepository
 {
-
-}
-
-public class StringSaverTxt : StringTextualRepository
-{
-
-}
-
-public class Flour : Ingredient
-{
-
-    public FlourType FlourType;
-
-    public Flour(int id, FlourType flourType) : base(id)
+    public void Load(string fileName)
     {
-        FlourType = flourType;
+        throw new NotImplementedException();
     }
+
+    public void Save(string text)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class RecipeRepositoryTxt : StringTextualRepository
+{
+    public void Load(string fileName)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Save(string text)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class WheatFlour : Ingredient
+{
+    private WheatFlour() : base(1, "Wheat Flour") { }
 
     public override string Instructions()
     {
-        return "Sieve. Add to other ingredients.";
+        return "Sieve. Add to the other ingredients.";
+    }
+}
+
+public class CoconutFlour : Ingredient
+{
+    private CoconutFlour() : base(2, "Coconut Flour") { }
+
+    public override string Instructions()
+    {
+        return "Sieve. Add to the other ingredients.";
     }
 }
 
 public class Butter : Ingredient
 {
-    public Butter(int id) : base(id)
+    public Butter() : base(3, "Butter")
     {
+
     }
 
     public override string Instructions()
@@ -104,7 +147,7 @@ public class Butter : Ingredient
 
 public class Chocolate : Ingredient
 {
-    public Chocolate(int id) : base(id)
+    public Chocolate() : base(4, "Chocolate")
     {
     }
 
@@ -116,7 +159,7 @@ public class Chocolate : Ingredient
 
 public class Sugar : Ingredient
 {
-    public Sugar(int id) : base(id)
+    public Sugar() : base(5, "Sugar")
     {
     }
 
@@ -128,7 +171,7 @@ public class Sugar : Ingredient
 
 public class Cardamom : Ingredient
 {
-    public Cardamom(int id) : base(id)
+    public Cardamom() : base(6, "Cardamom")
     {
     }
 
@@ -140,7 +183,7 @@ public class Cardamom : Ingredient
 
 public class Cinnamon : Ingredient
 {
-    public Cinnamon(int id) : base(id)
+    public Cinnamon() : base(7, "Cinnamon")
     {
     }
 
@@ -152,7 +195,7 @@ public class Cinnamon : Ingredient
 
 public class CocoaPowder : Ingredient
 {
-    public CocoaPowder(int id) : base(id)
+    public CocoaPowder() : base(8, "Cocoa Powder")
     {
     }
 
