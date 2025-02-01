@@ -28,11 +28,52 @@
             }
         } while (validInput == false);
 
-        if (repository.Read()) ;
-        Console.WriteLine();
+        Console.WriteLine(repository.Load("recipe"));
+
+        Console.WriteLine("Create a new cookie recipe!");
+
+        List<Ingredient> availableIngredients = MakeIngredients();
+
+        PrintIngredients(availableIngredients);
+
+        do
+        {
+            Console.WriteLine("Add an ingredient by is ID or type anything else if finished");
+
+            userInput = Console.ReadLine();
+
+            int id;
+            validInput = int.TryParse(userInput, out id);
 
 
 
+        } while (validInput == false);
+
+
+    }
+
+    private List<Ingredient> MakeIngredients()
+    {
+        return new List<Ingredient>()
+        {
+            new WheatFlour(),
+            new CoconutFlour(),
+            new Butter(),
+            new Chocolate(),
+            new Sugar(),
+            new Cardamom(),
+            new Cinnamon(),
+            new CocoaPowder()
+        };
+    }
+
+    private void PrintIngredients(List<Ingredient> ingredientsAvailable)
+    {
+        Console.WriteLine("Printing available ingredients: ");
+        foreach (Ingredient ingredient in ingredientsAvailable)
+        {
+            Console.WriteLine($"{ingredient.Id}. {ingredient.Name}");
+        }
     }
 }
 
@@ -83,12 +124,12 @@ public class StoreRecipes
 public interface StringTextualRepository
 {
     public void Save(string text);
-    public void Load(string fileName);
+    public string Load(string fileName);
 }
 
 public class RecipeRepositoryJson : StringTextualRepository
 {
-    public void Load(string fileName)
+    public string Load(string fileName)
     {
         throw new NotImplementedException();
     }
@@ -101,7 +142,7 @@ public class RecipeRepositoryJson : StringTextualRepository
 
 public class RecipeRepositoryTxt : StringTextualRepository
 {
-    public void Load(string fileName)
+    public string Load(string fileName)
     {
         throw new NotImplementedException();
     }
@@ -114,7 +155,7 @@ public class RecipeRepositoryTxt : StringTextualRepository
 
 public class WheatFlour : Ingredient
 {
-    private WheatFlour() : base(1, "Wheat Flour") { }
+    public WheatFlour() : base(1, "Wheat Flour") { }
 
     public override string Instructions()
     {
@@ -124,7 +165,7 @@ public class WheatFlour : Ingredient
 
 public class CoconutFlour : Ingredient
 {
-    private CoconutFlour() : base(2, "Coconut Flour") { }
+    public CoconutFlour() : base(2, "Coconut Flour") { }
 
     public override string Instructions()
     {
@@ -134,10 +175,7 @@ public class CoconutFlour : Ingredient
 
 public class Butter : Ingredient
 {
-    public Butter() : base(3, "Butter")
-    {
-
-    }
+    public Butter() : base(3, "Butter") { }
 
     public override string Instructions()
     {
@@ -147,9 +185,7 @@ public class Butter : Ingredient
 
 public class Chocolate : Ingredient
 {
-    public Chocolate() : base(4, "Chocolate")
-    {
-    }
+    public Chocolate() : base(4, "Chocolate") { }
 
     public override string Instructions()
     {
@@ -159,9 +195,7 @@ public class Chocolate : Ingredient
 
 public class Sugar : Ingredient
 {
-    public Sugar() : base(5, "Sugar")
-    {
-    }
+    public Sugar() : base(5, "Sugar") { }
 
     public override string Instructions()
     {
@@ -171,9 +205,7 @@ public class Sugar : Ingredient
 
 public class Cardamom : Ingredient
 {
-    public Cardamom() : base(6, "Cardamom")
-    {
-    }
+    public Cardamom() : base(6, "Cardamom") { }
 
     public override string Instructions()
     {
@@ -183,9 +215,7 @@ public class Cardamom : Ingredient
 
 public class Cinnamon : Ingredient
 {
-    public Cinnamon() : base(7, "Cinnamon")
-    {
-    }
+    public Cinnamon() : base(7, "Cinnamon") { }
 
     public override string Instructions()
     {
@@ -195,20 +225,12 @@ public class Cinnamon : Ingredient
 
 public class CocoaPowder : Ingredient
 {
-    public CocoaPowder() : base(8, "Cocoa Powder")
-    {
-    }
+    public CocoaPowder() : base(8, "Cocoa Powder") { }
 
     public override string Instructions()
     {
         return "Add to other ingredients.";
     }
-}
-
-public enum FlourType
-{
-    Wheat,
-    Coconut
 }
 
 public enum FileFormat
