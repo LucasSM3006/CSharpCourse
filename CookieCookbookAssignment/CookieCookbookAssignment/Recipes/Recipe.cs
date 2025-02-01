@@ -25,7 +25,7 @@ namespace CookieCookbookAssignment.Recipes
 
     public abstract class Flour : Ingredient
     {
-        public override string PreparationInstructions => "Sieve. Add to the other ingredients";
+        public override string PreparationInstructions => $"Sieve. {base.PreparationInstructions}";
     }
 
     public class WheatFlour : Flour
@@ -48,7 +48,7 @@ namespace CookieCookbookAssignment.Recipes
 
         public override string Name => "Butter";
 
-        public override string PreparationInstructions => "Melt. Add to the other ingredients.";
+        public override string PreparationInstructions => $"Melt. {base.PreparationInstructions}";
     }
 
     public class Chocolate : Ingredient
@@ -57,7 +57,7 @@ namespace CookieCookbookAssignment.Recipes
 
         public override string Name => "Chocolate";
 
-        public override string PreparationInstructions => "Melt in a water bath. Add to the other ingredients.";
+        public override string PreparationInstructions => $"Melt in a water bath. {base.PreparationInstructions}";
     }
 
     public class Sugar : Ingredient
@@ -69,7 +69,7 @@ namespace CookieCookbookAssignment.Recipes
 
     public abstract class Spice : Ingredient
     {
-        public override string PreparationInstructions => "Take half a teaspoon. Add to other ingredients.";
+        public override string PreparationInstructions => $"Take half a teaspoon. {base.PreparationInstructions}";
     }
 
     public class Cardamon : Spice
