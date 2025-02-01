@@ -1,16 +1,18 @@
 ﻿using CookieCookbookAssignment.Recipes;
 using CookieCookbookAssignment.Recipes.Ingredients;
+using Microsoft.VisualBasic;
 using System.Diagnostics.Metrics;
+using System.Text.Json;
 
 IngredientsRegister ingredientsRegister1 = new IngredientsRegister();
 RecipesConsoleUserInteraction console = new RecipesConsoleUserInteraction(ingredientsRegister1);
-TextRecipesRepository repository = new TextRecipesRepository(new StringsTextualRepository(), ingredientsRegister1);
+TextRecipesRepository repository = new TextRecipesRepository(new StringsJsonRepository(), ingredientsRegister1);
 
 CookiesRecipeApplication app = new CookiesRecipeApplication(repository, console);
 
 
 
-app.Run("recipes.txt");
+app.Run("recipes.json");
 
 public class CookiesRecipeApplication
 {
@@ -175,6 +177,12 @@ public interface IRecipesRepository
     public List<Recipe> Load(string filePath);
 }
 
+public interface IStringsRepository
+{
+    List<string> Read(string filename);
+    void Write(string filePath, List<string> strings);
+}
+
 public class TextRecipesRepository : IRecipesRepository
 {
     private readonly IStringsRepository _stringsRepository;
@@ -239,29 +247,6 @@ public class TextRecipesRepository : IRecipesRepository
     }
 }
 
-public class JsonRecipesRepository : IRecipesRepository
-{
-    public void Write(List<Recipe> recipes)
-    {
-
-    }
-
-    public List<Recipe> Load(string filePath)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Write(string filePath, List<Recipe> recipes)
-    {
-        throw new NotImplementedException();
-    }
-}
-
-public interface IStringsRepository
-{
-    List<string> Read(string filename);
-    void Write(string filePath, List<string> strings);
-}
 
 // Class previously made in another lecture.
 public class StringsTextualRepository : IStringsRepository
@@ -281,5 +266,23 @@ public class StringsTextualRepository : IStringsRepository
     public void Write(string filePath, List<string> strings)
     {
         File.WriteAllText(filePath, string.Join(Separator, strings));
+    }
+}
+
+public class StringsJsonRepository : IStringsRepository
+{
+    public List<string> Read(string filename)
+    {
+        if (File.Exists(filename))
+        {
+            var fileContents = File.ReadAllText(filename);
+            return JsonSerializer.Deserialize<List<string>>(fileContents);
+        }
+        return new List<string>();
+    }
+
+    public void Write(string filePath, List<string> strings)
+    {
+        File.WriteAllText(filePath, JsonSerializer.Serialize(strings));
     }
 }
