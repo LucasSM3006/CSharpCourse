@@ -1,13 +1,19 @@
-﻿public class MainFlow
+﻿MainFlow mainFlow = new MainFlow();
+
+mainFlow.RunProgram();
+
+public class MainFlow
 {
     private StringTextualRepository repository;
 
     public void RunProgram()
     {
+        string filePath = "recipe";
         Recipe recipe = new Recipe();
         Console.WriteLine("Select the type of format you'd prefer. (json or txt)");
         string userInput;
         bool validInput = false;
+
         do
         {
             userInput = Console.ReadLine();
@@ -29,7 +35,14 @@
             }
         } while (validInput == false);
 
-        Console.WriteLine(repository.Load("recipe"));
+        List<string> loadedRecipes = repository.Load("recipe");
+        if(loadedRecipes.Count > 0)
+        {
+            foreach (string loadedRecipe in loadedRecipes)
+            {
+                Console.WriteLine(loadedRecipe);
+            }
+        }
 
         Console.WriteLine("Create a new cookie recipe!");
 
@@ -70,7 +83,7 @@
 
             Console.WriteLine(recipe.BuildRecipe());
 
-            repository.Save(recipe.GetIds());
+            repository.Save(filePath, recipe.GetIds());
         }
 
         Console.WriteLine("Press any key to exit.");
@@ -118,7 +131,7 @@ public abstract class Ingredient
 
 public class Recipe
 {
-    public List<Ingredient> ingredients;
+    public List<Ingredient> ingredients = new List<Ingredient> ();
 
     public string BuildRecipe()
     {
@@ -142,15 +155,16 @@ public class Recipe
         return ingredients.Count == 0;
     }
 
-    public string GetIds()
+    public List<string> GetIds()
     {
-        string ids = "";
+        List<string> ids = new List<string> ();
 
-        foreach(Ingredient ingredient in ingredients)
-        {
-            ids += ingredient.Id;
+        if (ingredients.Count > 0) {
+            foreach (Ingredient ingredient in ingredients)
+            {
+                ids.Add(ingredient.Id.ToString());
+            }
         }
-
         return ids;
     }
 }
@@ -171,34 +185,55 @@ public class StoreRecipes
 
 public interface StringTextualRepository
 {
-    public void Save(string text);
-    public string Load(string fileName);
+    public void Save(string filePath, List<Recipe> recipes);
+    public List<string> Load(string filePath);
 }
 
 public class RecipeRepositoryJson : StringTextualRepository
 {
-    public string Load(string fileName)
+    private readonly string Separator = Environment.NewLine;
+    public List<string> Load(string filePath)
     {
         throw new NotImplementedException();
     }
 
-    public void Save(string text)
+    public void Save(string filePath, List<Recipe> recipes)
     {
+
         throw new NotImplementedException();
     }
 }
 
 public class RecipeRepositoryTxt : StringTextualRepository
 {
-    public string Load(string fileName)
+    private readonly string Separator = Environment.NewLine;
+    public List<string> Load(string filePath)
     {
-        throw new NotImplementedException();
+        throw new Exception();
     }
 
-    public void Save(string text)
+    public void Save(string filePath, List<Recipe> recipes)
     {
-        throw new NotImplementedException();
+        List<string> recipesAsStrings = new List<string>();
+        foreach(Recipe recipe in recipes)
+        {
+            List<int> allIds = new List<int>();
+            foreach (Ingredient ingredient in recipe.ingredients)
+            {
+                allIds.Add(ingredient.Id);
+            }
+            recipesAsStrings.Add(string.Join(",", allIds));
+        }
+
+        StringRepository.Write(filePath, recipesAsStrings);
     }
+}
+
+public static class StringRepository
+{
+    private static readonly string Separator = ",";
+    public static void Write(string path, List<string> strings) => File.WriteAllText(path, string.Join(Separator, strings));
+
 }
 
 public class WheatFlour : Ingredient
