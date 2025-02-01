@@ -1,12 +1,16 @@
-﻿CookiesRecipeApplication app = new CookiesRecipeApplication();
+﻿RecipesConsoleUserInteraction console = new RecipesConsoleUserInteraction();
+TextRecipesRepository repository = new TextRecipesRepository();
+
+CookiesRecipeApplication app = new CookiesRecipeApplication(repository, console);
+
 app.Run();
 
 public class CookiesRecipeApplication
 {
-    private readonly RecipesRepository _recipesRepository;
-    private readonly RecipesUserInteraction _recipesUserInteraction;
+    private readonly IRecipesRepository _recipesRepository;
+    private readonly IRecipesUserInteraction _recipesUserInteraction;
 
-    public CookiesRecipeApplication(RecipesRepository recipesRepository, RecipesUserInteraction recipesUserInteraction)
+    public CookiesRecipeApplication(IRecipesRepository recipesRepository, IRecipesUserInteraction recipesUserInteraction)
     {
         _recipesRepository = recipesRepository;
         _recipesUserInteraction = recipesUserInteraction;
@@ -14,7 +18,7 @@ public class CookiesRecipeApplication
 
     public void Run()
     {
-        RecipesRepository allRecipes = _recipesRepository.Load();
+        IRecipesRepository allRecipes = _recipesRepository.Load();
         _recipesUserInteraction.PrintExistingRecipes(allRecipes);
 
         _recipesUserInteraction.PromptToCreateRecipes();
@@ -41,7 +45,69 @@ public class CookiesRecipeApplication
     }
 }
 
+public interface IRecipesUserInteraction
+{
+    public void ShowMessage(string message);
+    public void PromptToCreateRecipes();
+    public void PrintExistingRecipes(List<Recipe> recipes);
+    public void Exit();
+}
 
+public class RecipesConsoleUserInteraction : IRecipesUserInteraction
+{
+    public void ShowMessage(string message)
+    {
+        Console.WriteLine(message);
+    }
+
+    public void PromptToCreateRecipes()
+    {
+
+    }
+
+    public void PrintExistingRecipes(List<Recipe> recipes)
+    {
+
+    }
+
+    public void Exit()
+    {
+        Console.WriteLine("Press any key to close.");
+        Console.ReadKey();
+    }
+}
+
+public interface IRecipesRepository
+{
+    public void Save(List<Recipe> recipes);
+    public List<Recipe> Load();
+}
+
+public class TextRecipesRepository : IRecipesRepository
+{
+    public void Save(List<Recipe> recipes)
+    {
+
+    }
+
+    public List<Recipe> Load()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class JsonRecipesRepository : IRecipesRepository
+{
+    public void Save(List<Recipe> recipes)
+    {
+
+    }
+
+    public List<Recipe> Load()
+    {
+        throw new NotImplementedException();
+    }
+}
 
 public class Recipe
 {
