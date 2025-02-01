@@ -108,13 +108,3 @@ public class JsonRecipesRepository : IRecipesRepository
         throw new NotImplementedException();
     }
 }
-
-public class Recipe
-{
-
-}
-
-public class Ingredient
-{
-
-}
