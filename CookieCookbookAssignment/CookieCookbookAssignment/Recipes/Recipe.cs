@@ -23,23 +23,23 @@ namespace CookieCookbookAssignment.Recipes
         public virtual string PreparationInstructions => "Add to other ingredients.";
     }
 
+    public abstract class Flour : Ingredient
+    {
+        public override string PreparationInstructions => "Sieve. Add to the other ingredients";
+    }
 
-    public class WheatFlour : Ingredient
+    public class WheatFlour : Flour
     {
         public override int Id => 1;
 
         public override string Name => "Wheat Flour";
-
-        public override string PreparationInstructions => "Sieve. Add to other other ingredients.";
     }
 
-    public class CoconutFlour : Ingredient
+    public class CoconutFlour : Flour
     {
         public override int Id => 2;
 
         public override string Name => "Coconut flour";
-
-        public override string PreparationInstructions => "Sieve. Add to other other ingredients.";
     }
 
     public class Butter : Ingredient
@@ -67,22 +67,23 @@ namespace CookieCookbookAssignment.Recipes
         public override string Name => "Sugar";
     }
 
-    public class Cardamon : Ingredient
+    public abstract class Spice : Ingredient
+    {
+        public override string PreparationInstructions => "Take half a teaspoon. Add to other ingredients.";
+    }
+
+    public class Cardamon : Spice
     {
         public override int Id => 6;
 
         public override string Name => "Cardamon";
-
-        public override string PreparationInstructions => "Take half a teaspoon. Add to other ingredients.";
     }
 
-    public class Cinnamon : Ingredient
+    public class Cinnamon : Spice
     {
         public override int Id => 7;
 
         public override string Name => "Cinnamon";
-
-        public override string PreparationInstructions => "Take half a teaspoon. Add to other ingredients.";
     }
 
     public class CocoaPowder : Ingredient
