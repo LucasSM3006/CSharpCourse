@@ -1,9 +1,8 @@
-﻿namespace CookieCookbookAssignment.Recipes.Ingredients
-{
-    public class WheatFlour : Flour
-    {
-        public override int Id => 1;
+﻿namespace CookieCookbookAssignment.Recipes.Ingredients;
 
-        public override string Name => "Wheat Flour";
-    }
+public class WheatFlour : Flour
+{
+    public override int Id => 1;
+
+    public override string Name => "Wheat Flour";
 }

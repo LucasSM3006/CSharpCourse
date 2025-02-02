@@ -1,9 +1,8 @@
-﻿namespace CookieCookbookAssignment.Recipes.Ingredients
-{
-    public class Cardamon : Spice
-    {
-        public override int Id => 6;
+﻿namespace CookieCookbookAssignment.Recipes.Ingredients;
 
-        public override string Name => "Cardamon";
-    }
+public class Cardamon : Spice
+{
+    public override int Id => 6;
+
+    public override string Name => "Cardamon";
 }
