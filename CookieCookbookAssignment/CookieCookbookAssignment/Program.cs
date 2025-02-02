@@ -4,15 +4,50 @@ using Microsoft.VisualBasic;
 using System.Diagnostics.Metrics;
 using System.Text.Json;
 
+const FileType format = FileType.Json;
+const string fileName = "recipes";
+
+FileMetaData fileMetaData = new FileMetaData(fileName, format);
+
+IStringsRepository stringsRepository = format == FileType.Json ?
+    new StringsJsonRepository() :
+    new StringsTextualRepository();
+
 IngredientsRegister ingredientsRegister1 = new IngredientsRegister();
 RecipesConsoleUserInteraction console = new RecipesConsoleUserInteraction(ingredientsRegister1);
-TextRecipesRepository repository = new TextRecipesRepository(new StringsJsonRepository(), ingredientsRegister1);
+TextRecipesRepository repository = new TextRecipesRepository(stringsRepository, ingredientsRegister1);
 
 CookiesRecipeApplication app = new CookiesRecipeApplication(repository, console);
 
 
 
-app.Run("recipes.json");
+app.Run(fileMetaData.ToPath());
+
+public class FileMetaData
+{
+    public string Name { get; }
+    public FileType Type { get; }
+
+    public FileMetaData(string name, FileType type)
+    {
+        Name = name;
+        Type = type;
+    }
+
+    public string ToPath() => $"{Name}.{Type.AsFileExtension()}";
+}
+
+public static class FileTypeExtensions
+{
+    public static string AsFileExtension(this FileType fileFormat) =>
+        fileFormat == FileType.Json ? "json" : "txt";
+}
+
+public enum FileType
+{
+    Json,
+    Txt
+}
 
 public class CookiesRecipeApplication
 {
@@ -248,41 +283,53 @@ public class TextRecipesRepository : IRecipesRepository
 }
 
 
-// Class previously made in another lecture.
-public class StringsTextualRepository : IStringsRepository
-{
-    private static readonly string Separator = Environment.NewLine;
-
-    public List<string> Read(string filename)
-    {
-        if(File.Exists(filename))
-        {
-            var fileContents = File.ReadAllText(filename);
-            return fileContents.Split(Separator).ToList();
-        }
-        return new List<string>();
-    }
-
-    public void Write(string filePath, List<string> strings)
-    {
-        File.WriteAllText(filePath, string.Join(Separator, strings));
-    }
-}
-
-public class StringsJsonRepository : IStringsRepository
+public abstract class StringsRepository : IStringsRepository
 {
     public List<string> Read(string filename)
     {
         if (File.Exists(filename))
         {
             var fileContents = File.ReadAllText(filename);
-            return JsonSerializer.Deserialize<List<string>>(fileContents);
+            return TextToStrings(fileContents);
         }
         return new List<string>();
     }
 
+    protected abstract List<string> TextToStrings(string fileContents);
+
     public void Write(string filePath, List<string> strings)
     {
-        File.WriteAllText(filePath, JsonSerializer.Serialize(strings));
+        File.WriteAllText(filePath, StringsToText(strings));
+    }
+
+    protected abstract string StringsToText(List<string> strings);
+}
+
+
+public class StringsTextualRepository : StringsRepository
+{
+    private static readonly string Separator = Environment.NewLine;
+
+    protected override string StringsToText(List<string> strings)
+    {
+        return string.Join(Separator, strings);
+    }
+
+    protected override List<string> TextToStrings(string fileContents)
+    {
+        return fileContents.Split(Separator).ToList();
+    }
+}
+
+public class StringsJsonRepository : StringsRepository
+{
+    protected override string StringsToText(List<string> strings)
+    {
+        return JsonSerializer.Serialize(strings);
+    }
+
+    protected override List<string> TextToStrings(string fileContents)
+    {
+        return JsonSerializer.Deserialize<List<string>>(fileContents);
     }
 }
