@@ -5,10 +5,10 @@ try
     int number = ParseStringToInt(input);
     Console.WriteLine($"String successfully parsed. Result is: {number}");
 }
-catch (Exception e)
+catch (FormatException e)
 {
-    Console.WriteLine("An exception was thrown.");
-    Console.WriteLine(e.Message);
+    Console.WriteLine("Wrong format. Input is not parsable into an integer.");
+    Console.WriteLine($"Exception message: {e.Message}");
 }
 finally // Always executed even when it runs properly. Useful for closing DB connections, for example.
 {
