@@ -3,7 +3,8 @@ string input = Console.ReadLine();
 try
 {
     int number = ParseStringToInt(input);
-    Console.WriteLine($"String successfully parsed. Result is: {number}");
+    int result = 10 / number;
+    Console.WriteLine($"10 / {number} = {result}");
 }
 catch (FormatException e)
 {
