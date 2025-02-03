@@ -1,6 +1,8 @@
 ﻿// List<int> numbers = new List<int> { 1, 2, 3 };
 // int first = GetFirstElement(numbers);
 
+Person invalidPerson = new Person("", -100);
+
 Console.ReadKey();
 
 int GetFirstElement(IEnumerable<int> numbers)
@@ -22,6 +24,14 @@ class Person
 
     public Person(string name, int yearOfBirth)
     {
+        if (name == string.Empty)
+        {
+            throw new Exception("Invalid name. Must not be empty.");
+        }
+        if (yearOfBirth < 1900 || yearOfBirth > DateTime.Now.Year)
+        {
+            throw new Exception("Invalid year. Must be below current year & above 1900");
+        }
         Name = name;
         YearOfBirth = yearOfBirth;
     }
