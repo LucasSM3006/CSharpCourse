@@ -16,6 +16,11 @@ catch (DivideByZeroException e)
     Console.WriteLine("Cannot divide by zero. Input cannot be zero.");
     Console.WriteLine(GetExceptionMessage(e));
 }
+catch (Exception e)
+{
+    Console.WriteLine("Unexpected error occurred.");
+    Console.WriteLine(GetExceptionMessage(e));
+}
 finally // Always executed even when it runs properly. Useful for closing DB connections, for example.
 {
     Console.WriteLine("Finally block being executed");
