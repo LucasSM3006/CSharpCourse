@@ -32,6 +32,24 @@ int GetFirstElement(IEnumerable<int> numbers)
     // We throw an exception here because we can't handle the input in a reasonable way, and an invalid input is whoever's implementing the method's mistake.
 }
 
+bool IsFirstElementPositive(IEnumerable<int> numbers)
+{
+    try
+    {
+        int firstElement = GetFirstElement(numbers);
+        return firstElement > 0;
+    }
+    catch (InvalidOperationException ex)
+    {
+        Console.WriteLine("The collection is empty!");
+        return true;
+    }
+    catch (NullReferenceException ex)
+    {
+        throw new NullReferenceException("The collection is null.", ex); // We're not expecting nulls here, so this is fine.
+    }
+}
+
 class Person
 {
     public string Name { get; }
