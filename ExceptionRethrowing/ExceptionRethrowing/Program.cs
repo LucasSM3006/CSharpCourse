@@ -1,7 +1,7 @@
 ﻿try {
     IsFirstElementPositive(null);
 }
-catch (NullReferenceException ex)
+catch (ArgumentNullException ex)
 {
     Console.WriteLine(ex.Message);
 }
@@ -34,8 +34,8 @@ bool IsFirstElementPositive(IEnumerable<int> numbers)
     catch (NullReferenceException ex)
     {
         Console.WriteLine("Sorry, the app experienced an unexpected error!");
-        throw; // Preserves the stack trace, will point to the method that caused the exception in the first place.
+        // throw; // Preserves the stack trace, will point to the method that caused the exception in the first place.
         // throw ex; // Doesn't preserve the stack trace, we'll lose information about the first place that threw an exception.
-        // throw new NullReferenceException("The collection is null.", ex); // We're not expecting nulls here, so this is fine.
+        throw new ArgumentNullException("The collection is null.", ex); // Preserves the stack trace.
     }
 }
