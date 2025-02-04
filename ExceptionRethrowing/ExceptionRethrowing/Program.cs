@@ -55,7 +55,16 @@ public class PersonDataReader
 
     public Person ReadPersonData(int personId)
     {
-        return _peopleRepository.Read(personId);
+        try
+        {
+            return _peopleRepository.Read(personId);
+        }
+        catch (Exception ex)
+        {
+            // We merely rethrow it because we're not looking to handle it, only log it so that someone may take care of it.
+            _logger.Log(ex);
+            throw;
+        }
     }
 }
 
@@ -74,12 +83,12 @@ public class PeopleRepository : IPeopleRepository
 
 public interface ILogger
 {
-    public void Log(string message);
+    public void Log(Exception exception);
 }
 
 public class LoggingTxt : ILogger
 {
-    public void Log(string message)
+    public void Log(Exception message)
     {
         throw new NotImplementedException();
     }
