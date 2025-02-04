@@ -39,3 +39,53 @@ bool IsFirstElementPositive(IEnumerable<int> numbers)
         throw new ArgumentNullException("The collection is null.", ex); // Preserves the stack trace.
     }
 }
+
+public class PersonDataReader
+{
+    private readonly IPeopleRepository _peopleRepository;
+    private readonly ILogger _logger;
+
+    public PersonDataReader(
+        IPeopleRepository repository,
+        ILogger logger)
+    {
+        _peopleRepository = repository;
+        _logger = logger;
+    }
+
+    public Person ReadPersonData(int personId)
+    {
+        return _peopleRepository.Read(personId);
+    }
+}
+
+public interface IPeopleRepository
+{
+    public Person Read(int id);
+}
+
+public class PeopleRepository : IPeopleRepository
+{
+    public Person Read(int id)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public interface ILogger
+{
+    public void Log(string message);
+}
+
+public class LoggingTxt : ILogger
+{
+    public void Log(string message)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+public class Person()
+{
+
+}
