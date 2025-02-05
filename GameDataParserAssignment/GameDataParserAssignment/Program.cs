@@ -1,6 +1,62 @@
 ﻿
 using System.Text.Json;
 
+bool shouldStop = false;
+Console.WriteLine("Enter the name of the file you want to read:");
+
+do
+{
+    string fileName = Console.ReadLine();
+    string fileContents;
+
+    try
+    {
+        if(File.Exists(fileName)) // Could've simply thrown an exception but I prefer it this way.
+        {
+            fileContents = File.ReadAllText(fileName);
+            List<GameData> videoGames;
+            try
+            {
+                videoGames = JsonSerializer.Deserialize<List<GameData>>(fileContents);
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"JSON in the {fileName} was not in a valid format.");
+                Console.WriteLine($"JSON body: {fileContents}");
+                // Logger.Add(ex);
+                break;
+            }
+
+            if (videoGames.Count > 0)
+            {
+                foreach (GameData game in videoGames)
+                {
+                    Console.WriteLine(game);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No games.");
+            }
+
+            shouldStop = true;
+        }
+        else
+        {
+            Console.WriteLine("File not found.");
+        }
+    }
+    catch (ArgumentNullException ex)
+    {
+        Console.WriteLine("File name cannot be null.");
+        shouldStop = false;
+    }
+} while (!shouldStop);
+
+Console.WriteLine("Press any key to close.");
+Console.ReadKey();
+
+
 public class GameDataParserApplication
 {
     private readonly IGameDataAppUserInteraction _gameUserInteraction;
@@ -46,12 +102,17 @@ public class ConsoleUserInteraction : IGameDataAppUserInteraction
 
         }
 
-
+        return null;
     }
 
     public void ShowMessage(string message)
     {
         throw new NotImplementedException();
+    }
+
+    public string DisplayFromFile()
+    {
+        return null;
     }
 
     public void Exit()
@@ -85,5 +146,10 @@ public class GameData
         Title = title;
         ReleaseYear = releaseYear;
         Rating = rating;
+    }
+
+    public override string ToString()
+    {
+        return $"{Title}, released in {ReleaseYear}, with a rating of {Rating}";
     }
 }
