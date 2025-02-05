@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json;
+
 public class GameDataParserApplication
 {
     private readonly IGameDataAppUserInteraction _gameUserInteraction;
@@ -15,9 +17,9 @@ public class GameDataParserApplication
 
         _gameUserInteraction.ShowMessage("Enter the name of the file you want to read:");
 
-        string filename = _gameUserInteraction.PromptUserFileName();
+        string fileName = _gameUserInteraction.PromptUserFileName();
 
-        _gameDataRepository.ReadDataFromJson(fileName);
+        _gameDataRepository.Read(fileName);
 
         _gameUserInteraction.Exit();
     }
@@ -30,18 +32,55 @@ public interface IGameDataAppUserInteraction
     public void Exit();
 }
 
-public interface IGameDataRepository
+public class ConsoleUserInteraction : IGameDataAppUserInteraction
 {
-    public JsonGameData ReadDataFromJson(string fileName);
+    public string PromptUserFileName()
+    {
+        bool shouldStop = false;
+
+        while(!shouldStop)
+        {
+            string userInput = Console.ReadLine();
+
+
+
+        }
+
+
+    }
+
+    public void ShowMessage(string message)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Exit()
+    {
+        throw new NotImplementedException();
+    }
 }
 
-public class JsonGameData
+public interface IGameDataRepository
+{
+    public string Read(string fileName);
+}
+
+public class JsonReader : IGameDataRepository
+{
+    public string Read(string fileName)
+    {
+
+        return null;
+    }
+}
+
+public class GameData
 {
     public string Title { get; }
     public int ReleaseYear { get; }
     public double Rating { get; }
 
-    public JsonGameData(string title, int releaseYear, double rating)
+    public GameData(string title, int releaseYear, double rating)
     {
         Title = title;
         ReleaseYear = releaseYear;
