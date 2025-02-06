@@ -28,39 +28,42 @@ public class GameDataParserApplication
     
     public void Run()
     {
-        bool shouldStop = false;
-        Console.WriteLine("Enter the name of the file you want to read:");
-        string fileName = "";
-        string fileContents = "";
+        string fileName = ReadValidFilePath();
 
-        do
-        {
-            fileName = Console.ReadLine();
-
-            try
-            {
-                fileContents = File.ReadAllText(fileName);
-                shouldStop = true;
-            }
-            catch (ArgumentNullException ex)
-            {
-                Console.WriteLine("File name cannot be null.");
-            }
-            catch (ArgumentException ex)
-            {
-                Console.WriteLine("File name cannot be empty.");
-            }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine("File not found.");
-            }
-        } while (!shouldStop);
+        string fileContents = File.ReadAllText(fileName);
 
         List<GameData> videoGames = new List<GameData>();
+        videoGames = DeserializeVideoGamesFromJson(fileName, fileContents);
+        PrintGames(videoGames);
+        Exit();
+    }
 
+    private static void Exit()
+    {
+        Console.WriteLine("Press any key to close.");
+        Console.ReadKey();
+    }
+
+    private static void PrintGames(List<GameData> videoGames)
+    {
+        if (videoGames.Count > 0)
+        {
+            foreach (GameData game in videoGames)
+            {
+                Console.WriteLine(game);
+            }
+        }
+        else
+        {
+            Console.WriteLine("No games.");
+        }
+    }
+
+    private static List<GameData> DeserializeVideoGamesFromJson(string fileName, string fileContents)
+    {
         try
         {
-            videoGames = JsonSerializer.Deserialize<List<GameData>>(fileContents);
+            return JsonSerializer.Deserialize<List<GameData>>(fileContents);
         }
         catch (JsonException ex)
         {
@@ -74,21 +77,36 @@ public class GameDataParserApplication
 
             throw new JsonException($"{ex.Message} The file is: {fileName}", ex); // Message is read only, hence the need to create a new exception. Just like java.
         }
+    }
 
-        if (videoGames.Count > 0)
+    private static string ReadValidFilePath()
+    {
+        bool shouldStop = false;
+        string fileName = "";
+
+        do
         {
-            foreach (GameData game in videoGames)
+            Console.WriteLine("Enter the name of the file you want to read:");
+            fileName = Console.ReadLine();
+
+            if (fileName is null)
             {
-                Console.WriteLine(game);
+                Console.WriteLine("File name cannot be null.");
             }
-        }
-        else
-        {
-            Console.WriteLine("No games.");
-        }
-
-        Console.WriteLine("Press any key to close.");
-        Console.ReadKey();
+            else if (fileName == string.Empty)
+            {
+                Console.WriteLine("File name cannot be empty.");
+            }
+            else if (!File.Exists(fileName))
+            {
+                Console.WriteLine("File not found.");
+            }
+            else
+            {
+                shouldStop = true;
+            }
+        } while (!shouldStop);
+        return fileName;
     }
 }
 
