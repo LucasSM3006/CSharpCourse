@@ -1,61 +1,19 @@
-﻿
-using System.Text.Json;
+﻿using System.Text.Json;
 
-bool shouldStop = false;
-Console.WriteLine("Enter the name of the file you want to read:");
+GameDataParserApplication app = new GameDataParserApplication(new ConsoleUserInteraction(), new JsonReader());
+Logger logger = new Logger("log.txt");
 
-do
+try
 {
-    string fileName = Console.ReadLine();
-    string fileContents;
-
-    try
-    {
-        if(File.Exists(fileName)) // Could've simply thrown an exception but I prefer it this way.
-        {
-            fileContents = File.ReadAllText(fileName);
-            List<GameData> videoGames;
-            try
-            {
-                videoGames = JsonSerializer.Deserialize<List<GameData>>(fileContents);
-            }
-            catch (JsonException ex)
-            {
-                Console.WriteLine($"JSON in the {fileName} was not in a valid format.");
-                Console.WriteLine($"JSON body: {fileContents}");
-                // Logger.Add(ex);
-                break;
-            }
-
-            if (videoGames.Count > 0)
-            {
-                foreach (GameData game in videoGames)
-                {
-                    Console.WriteLine(game);
-                }
-            }
-            else
-            {
-                Console.WriteLine("No games.");
-            }
-
-            shouldStop = true;
-        }
-        else
-        {
-            Console.WriteLine("File not found.");
-        }
-    }
-    catch (ArgumentNullException ex)
-    {
-        Console.WriteLine("File name cannot be null.");
-        shouldStop = false;
-    }
-} while (!shouldStop);
-
-Console.WriteLine("Press any key to close.");
-Console.ReadKey();
-
+    app.Run();
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Sorry! The application has run into an unexpected issue and will have to be closed!");
+    logger.Log(ex);
+    Console.WriteLine("Press any key to close");
+    Console.ReadKey();
+}
 
 public class GameDataParserApplication
 {
@@ -70,14 +28,89 @@ public class GameDataParserApplication
     
     public void Run()
     {
+        bool shouldStop = false;
+        Console.WriteLine("Enter the name of the file you want to read:");
+        string fileName = "";
+        string fileContents = "";
 
-        _gameUserInteraction.ShowMessage("Enter the name of the file you want to read:");
+        do
+        {
+            fileName = Console.ReadLine();
 
-        string fileName = _gameUserInteraction.PromptUserFileName();
+            try
+            {
+                fileContents = File.ReadAllText(fileName);
+                shouldStop = true;
+            }
+            catch (ArgumentNullException ex)
+            {
+                Console.WriteLine("File name cannot be null.");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("File name cannot be empty.");
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("File not found.");
+            }
+        } while (!shouldStop);
 
-        _gameDataRepository.Read(fileName);
+        List<GameData> videoGames = new List<GameData>();
 
-        _gameUserInteraction.Exit();
+        try
+        {
+            videoGames = JsonSerializer.Deserialize<List<GameData>>(fileContents);
+        }
+        catch (JsonException ex)
+        {
+            ConsoleColor originalColor = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine($"JSON in {fileName} file was not in a valid format. JSON body: ");
+            Console.WriteLine(fileContents);
+
+            Console.ForegroundColor = originalColor;
+
+            throw new JsonException($"{ex.Message} The file is: {fileName}", ex); // Message is read only, hence the need to create a new exception. Just like java.
+        }
+
+        if (videoGames.Count > 0)
+        {
+            foreach (GameData game in videoGames)
+            {
+                Console.WriteLine(game);
+            }
+        }
+        else
+        {
+            Console.WriteLine("No games.");
+        }
+
+        Console.WriteLine("Press any key to close.");
+        Console.ReadKey();
+    }
+}
+
+public class Logger
+{
+    private readonly string LogFileName;
+
+    public Logger(string logFileName)
+    {
+        LogFileName = logFileName;
+    }
+
+    public void Log(Exception ex)
+    {
+        string entry =
+$@"[{DateTime.Now}]
+Exception message: {ex.Message}
+Stack trace: {ex.StackTrace}
+
+";
+
+        File.AppendAllText(LogFileName, entry); // creates a log if it doesn't exist.
     }
 }
 
