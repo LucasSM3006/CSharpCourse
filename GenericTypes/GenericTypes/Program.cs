@@ -14,7 +14,11 @@ public class IntList
         {
             int[] newItems = new int[_items.Length * 2];
 
-            for(int i = 0; i < )
+            for(int i = 0; i < _items.Length; i++ )
+            {
+                newItems[i] = _items[i];
+            }
+            _items = newItems;
         }
         _items[_size] = item;
         ++_size;
