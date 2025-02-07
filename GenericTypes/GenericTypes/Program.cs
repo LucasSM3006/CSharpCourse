@@ -10,6 +10,19 @@ list.Add(30);
 list.Add(40);
 list.Add(50);
 
+foreach (int i in list.GetList())
+{
+    Console.WriteLine(i);
+}
+
+list.RemoveAt(2);
+
+foreach(int i in list.GetList())
+{
+    Console.WriteLine(i);
+}
+
+Console.ReadKey();
 
 public class IntList
 {
@@ -40,5 +53,17 @@ public class IntList
         }
 
         --_size;
+
+        for(int i = index; i < _size; i++)
+        {
+            _items[i] = _items[i + 1];
+        }
+
+        _items[_size] = 0;
+    }
+
+    public int[] GetList()
+    {
+        return _items;
     }
 }
