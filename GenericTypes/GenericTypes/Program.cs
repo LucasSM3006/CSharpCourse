@@ -2,6 +2,14 @@
 List<string> words = new List<string> { "aaa", "bbb" };
 List<DateTime> dates = new List<DateTime> { DateTime.Now, new DateTime(2025, 5, 30) };
 
+IntList list = new IntList();
+
+list.Add(10);
+list.Add(20);
+list.Add(30);
+list.Add(40);
+list.Add(50);
+
 
 public class IntList
 {
@@ -24,4 +32,13 @@ public class IntList
         ++_size;
     }
 
+    public void RemoveAt(int index)
+    {
+        if(index > 0 && index < _items.Length)
+        {
+
+        }
+
+        --_size;
+    }
 }
