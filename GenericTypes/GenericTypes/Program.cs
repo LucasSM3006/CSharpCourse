@@ -15,7 +15,11 @@ foreach (int i in list.GetList())
     Console.WriteLine(i);
 }
 
+Console.WriteLine($"Number on index 2: {list.GetAtIndex(2)}");
+
 list.RemoveAt(2);
+
+Console.WriteLine($"Number on index 2: {list.GetAtIndex(2)}");
 
 foreach(int i in list.GetList())
 {
@@ -65,5 +69,10 @@ public class IntList
     public int[] GetList()
     {
         return _items;
+    }
+
+    public int GetAtIndex(int index)
+    {
+        return _items[index];
     }
 }
