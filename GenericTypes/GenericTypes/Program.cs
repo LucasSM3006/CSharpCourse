@@ -2,7 +2,9 @@
 List<string> words = new List<string> { "aaa", "bbb" };
 List<DateTime> dates = new List<DateTime> { DateTime.Now, new DateTime(2025, 5, 30) };
 
-IntList list = new IntList();
+
+GenericList<int> list = new GenericList<int>();
+GenericList<string> list2 = new GenericList<string>();
 
 list.Add(10);
 list.Add(20);
@@ -26,18 +28,40 @@ foreach(int i in list.GetList())
     Console.WriteLine(i);
 }
 
+list2.Add("aaa");
+list2.Add("bbb");
+list2.Add("ccc");
+list2.Add("ddd");
+list2.Add("eee");
+
+foreach(string i in list2.GetList())
+{
+    Console.WriteLine(i);
+}
+
+Console.WriteLine($"Number on index 2: {list2.GetAtIndex(2)}");
+
+list2.RemoveAt(2);
+
+Console.WriteLine($"Number on index 2: {list2.GetAtIndex(2)}");
+
+foreach (string i in list2.GetList())
+{
+    Console.WriteLine(i);
+}
+
 Console.ReadKey();
 
-public class IntList
+public class GenericList<T> // We can have multiple type parameters in there, ie, <TValue, TOtherValue>
 {
-    private int[] _items = new int[4];
+    private T[] _items = new T[4];
     private int _size = 0;
 
-    public void Add(int item)
+    public void Add(T item)
     {
         if(_size >= _items.Length)
         {
-            int[] newItems = new int[_items.Length * 2];
+            T[] newItems = new T[_items.Length * 2];
 
             for(int i = 0; i < _items.Length; i++ )
             {
@@ -51,7 +75,7 @@ public class IntList
 
     public void RemoveAt(int index)
     {
-        if(index > 0 && index < _items.Length)
+        if(index < 0 && index > _items.Length)
         {
             throw new IndexOutOfRangeException($"Index {index} is outside the bonds of the list.");
         }
@@ -63,17 +87,17 @@ public class IntList
             _items[i] = _items[i + 1];
         }
 
-        _items[_size] = 0;
+        _items[_size] = default;
     }
 
-    public int[] GetList()
+    public T[] GetList()
     {
         return _items;
     }
 
-    public int GetAtIndex(int index)
+    public T GetAtIndex(int index)
     {
-        if (index > 0 && index < _items.Length)
+        if (index < 0 && index > _items.Length)
         {
             throw new IndexOutOfRangeException($"Index {index} is outside the bonds of the list.");
         }
