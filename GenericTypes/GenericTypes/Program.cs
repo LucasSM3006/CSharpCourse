@@ -53,7 +53,7 @@ public class IntList
     {
         if(index > 0 && index < _items.Length)
         {
-
+            throw new IndexOutOfRangeException($"Index {index} is outside the bonds of the list.");
         }
 
         --_size;
@@ -73,6 +73,11 @@ public class IntList
 
     public int GetAtIndex(int index)
     {
+        if (index > 0 && index < _items.Length)
+        {
+            throw new IndexOutOfRangeException($"Index {index} is outside the bonds of the list.");
+        }
+
         return _items[index];
     }
 }
