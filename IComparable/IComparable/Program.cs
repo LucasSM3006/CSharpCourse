@@ -17,7 +17,23 @@ foreach (Person person in people)
     Console.WriteLine(person.Name);
 }
 
+PrintInOrder(1, 2);
+PrintInOrder(2, 5);
+PrintInOrder(10, 6);
+
 Console.ReadKey();
+
+void PrintInOrder(int first, int second)
+{
+    if(first > second)
+    {
+        Console.WriteLine($"{second} {first}");
+    }
+    else
+    {
+        Console.WriteLine($"{first} {second}");
+    }
+}
 
 public class Person : IComparable<Person>
 {
