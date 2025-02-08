@@ -31,6 +31,24 @@ You will need to:
  * 
  */
 
+List<FullName> people1 = new List<FullName>
+{
+    new FullName { FirstName = "John", LastName = "Watson" },
+    new FullName { FirstName = "Anna", LastName = "Smith" },
+    new FullName { FirstName = "Kenji", LastName = "Nagashki" },
+    new FullName { FirstName = "Kazuma", LastName = "Kiryu" },
+    new FullName { FirstName = "John", LastName = "Smith" }
+};
+
+SortedList<FullName> sortedPeople = new SortedList<FullName>(people1);
+
+foreach (FullName person in sortedPeople.Items)
+{
+    Console.WriteLine(person.ToString());
+}
+
+Console.ReadKey();
+
 public class SortedList<T> where T : IComparable<T>
 {
     public IEnumerable<T> Items { get; }
@@ -54,11 +72,11 @@ public class FullName : IComparable<FullName>
     {
         if(LastName.CompareTo(other.LastName) == 1)
         {
-            return -1;
+            return 1;
         }
         else if(LastName.CompareTo(other.LastName) == -1)
         {
-            return 1;
+            return -1;
         }
         else
         {
