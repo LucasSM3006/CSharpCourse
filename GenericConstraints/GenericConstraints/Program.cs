@@ -2,7 +2,7 @@
 
 Stopwatch sw = Stopwatch.StartNew();
 
-var list = CreateCollectionOfRandomLength<int>(0);
+var list = CreateCollectionOfRandomLength<int>(100);
 
 sw.Stop();
 Console.WriteLine($"number of miliseconds: {sw.ElapsedMilliseconds}");
@@ -10,7 +10,7 @@ Console.ReadKey();
 
 IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new() // Gaurantees there's an empty constructor that takes no parameters.
 {
-    int length = 10000000; // new Random().Next(maxLength + 1);
+    int length = new Random().Next(maxLength + 1); // 10000000;
 
     List<T> collection = new List<T>(length); // Sets list size.
 
