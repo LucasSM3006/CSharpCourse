@@ -17,15 +17,20 @@ foreach (Person person in people)
     Console.WriteLine(person.Name);
 }
 
+Person joel = new Person { Name = "Joel Sweden", YearOfBirth = 1995 };
+Person kazuma = new Person { Name = "Kazuma Kiryu", YearOfBirth = 1988 };
+
 PrintInOrder(1, 2);
-PrintInOrder(2, 5);
+PrintInOrder("aaa", "bbb");
+PrintInOrder("zzz", "ccc");
 PrintInOrder(10, 6);
+PrintInOrder(joel, kazuma); // We can now do this since the class implements the CompareTo method.
 
 Console.ReadKey();
 
-void PrintInOrder(int first, int second)
+void PrintInOrder<T>(T first, T second) where T: IComparable<T> // We're gonna make it so this only accepts types which implement the IComparable interface.
 {
-    if(first > second)
+    if(first.CompareTo(second) > 0)
     {
         Console.WriteLine($"{second} {first}");
     }
@@ -39,6 +44,11 @@ public class Person : IComparable<Person>
 {
     public string Name { get; init; }
     public int YearOfBirth { get; init; }
+
+    public override string ToString()
+    {
+        return $"{Name}, born in {YearOfBirth}.";
+    }
 
     public int CompareTo(Person other)
     {
