@@ -1,4 +1,6 @@
-﻿Console.WriteLine($"Square of 2 is: {Calculator.Square(2)}");
+﻿using System.Numerics;
+
+Console.WriteLine($"Square of 2 is: {Calculator.Square(2)}");
 Console.WriteLine($"Square of 4m is: {Calculator.Square(4m)}");
 Console.WriteLine($"Square of 6d is: {Calculator.Square(6d)}");
 
@@ -7,7 +9,5 @@ Console.ReadKey();
 
 public static class Calculator
 {
-    public static int Square(int input) => input * input;
-    public static decimal Square(decimal input) => input * input;
-    public static double Square(double input) => input * input;
+    public static T Square<T>(T input) where T: INumber<T> => input * input;
 }
