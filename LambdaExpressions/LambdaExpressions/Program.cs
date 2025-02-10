@@ -1,15 +1,32 @@
-﻿int a = 5;
-Person person = new Person("Roxanne", "Varguez", 1999);
+﻿List<int> numbers = new List<int> { 1, 4, 2, 6, 5, 1, 2, 7 };
 
-Func<int, DateTime> someFunc; // Func used if it has a return value.
-Action<string, bool> someAction; // Actions are used for void return. Can repesent any void function taking in a string and a boolean.
+// Declaration is as follows:
+// parameter => expression ie;
+// n => n > 10
+// n => n > 0
+// n => n < 0
+// n => n == 0
+//
+// more than one parameter is also possible;
+//
+// (p1, p2) => expression
+//
+// if there are no parameters:
+// 
+// () => expression
+// 
+// also...
+// () => STATEMENTS
+// statements return nothing, functions do. void return on statement.
+// functions evaluate on a value, statements do not.
+// () => Console.WriteLine()
+//
+// Types are also inferred, as such,
+// var someFunc = n => n % 2 == 0;
+// would not work.
 
-List<int> numbers = new List<int> { 1, 4, 2, 6, 5, 1, 2, 7 };
-Func<int, bool> predicate1 = IsLargerThanTen;
-Func<int, bool> predicate2 = IsEven;
-
-Console.WriteLine($"Are any numbers larger than 10? {IsAny(numbers, predicate1)}");
-Console.WriteLine($"Are any numbers even? {IsAny(numbers, predicate2)}");
+Console.WriteLine($"Are any numbers larger than 10? {IsAny(numbers, n => n > 10)}"); // Lambda expression here.
+Console.WriteLine($"Are any numbers even? {IsAny(numbers, n => n % 2 == 0)}");
 
 Console.ReadKey();
 
@@ -23,16 +40,6 @@ bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate) // The func type
         }
     }
     return false;
-}
-
-bool IsLargerThanTen(int number)
-{
-    return number > 10;
-}
-
-bool IsEven(int number)
-{
-    return (number % 2 == 0);
 }
 
 public class Person
