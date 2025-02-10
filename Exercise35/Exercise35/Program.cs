@@ -15,6 +15,6 @@ The Exercise class has two fields of Func type. To each of them, assign a lambda
 
 public class Exercise
 {
-    public Func<string, int> GetLength = // your code goes here;
-        public Func<int> GetRandomNumberBetween1And10 = // your code goes here;
-    }
+    public Func<string, int> GetLength = n => n.Length;
+    public Func<int> GetRandomNumberBetween1And10 = () => new Random().Next(1, 11);
+}
