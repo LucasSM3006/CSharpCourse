@@ -1,4 +1,5 @@
 ﻿var numbers = new List<int> { 10, 12, -100, 55, 17, 22 };
+FilteringStrategySelector filteringStrategySelector = new FilteringStrategySelector();
 
 // There is also going to be an implementation of the open closed principle
 // The principle that dictates that "modules, classes, and functions, should be opened for extension, but closed for modification"
@@ -13,13 +14,14 @@ Negative");
 
 var userInput = Console.ReadLine();
 
-List<int> result = new NumbersFilter().FilterBy(userInput, numbers);
+List<int> result = new NumbersFilter().FilterBy(filteringStrategySelector.Select(userInput), numbers);
 
 Print(result);
 Print(numbers);
 
 Console.ReadKey();
 
+// The strategy pattern lets us define a family of algorithms that perform some tasks, the concrete strategy can be chosen at runtime.
 
 void Print(IEnumerable<int> numbers)
 {
@@ -28,25 +30,8 @@ void Print(IEnumerable<int> numbers)
 
 public class NumbersFilter
 {
-    // This is pretty good, but now it breaks SRP and is also going to need to be modified in the future if we want to add new things.
-    public List<int> FilterBy(string filteringType, List<int> numbers)
-    {
-        switch (filteringType.ToLower())
-        {
-            case "even":
-                return Select(numbers, n => n % 2 == 0);
-            case "odd":
-                return Select(numbers, n => n % 2 != 0);
-            case "positive":
-                return Select(numbers, n => n > 0);
-            case "negative":
-                return Select(numbers, n => n < 0);
-            default:
-                throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
-        }
-    }
-
-    private List<int> Select(List<int> numbers, Func<int, bool> predicate)
+    // This method should never need to be modified.
+    public List<int> FilterBy(Func<int, bool> predicate, List<int> numbers)
     {
         List<int> result = new List<int>();
 
@@ -56,5 +41,46 @@ public class NumbersFilter
         }
 
         return result;
+    }
+}
+
+public class FilteringStrategySelector
+{
+    /*
+     * private readonly Dictionary<string, Func<int, bool>> _filteringStrategies =
+     * new Dictionary<string, Func<int, bool>>
+     * {
+     *      ["even"] = n => n % 2 == 0,
+     *      ["odd"] = n => n % 2 != 0,
+     *      ["positive"] = n => n > 0,
+     *      ["negative"] = n => n < 0
+     * };
+     * 
+     */
+    public Func<int, bool> Select(string filteringType)
+    {
+        /* // Alternative way of doing it.
+         * 
+         * if(!_filteringStrategies.ContainsKey(filteringType))
+         * {
+         *      throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
+         * }
+         * 
+         * return _filteringStrategies[filteringType.ToLower()];
+         * 
+         */
+        switch (filteringType.ToLower())
+        {
+            case "even":
+                return n => n % 2 == 0;
+            case "odd":
+                return n => n % 2 != 0;
+            case "positive":
+                return n => n > 0;
+            case "negative":
+                return n => n < 0;
+            default:
+                throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
+        }
     }
 }
