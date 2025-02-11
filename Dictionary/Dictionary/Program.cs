@@ -43,4 +43,11 @@ if(countryToCurrencyMappingALT2.ContainsKey("BR"))
     Console.WriteLine("Doesn't contain it");
 }
 
+foreach (KeyValuePair<string, string> key in countryToCurrencyMapping)
+{
+    Console.WriteLine(key); // Prints out the key and value like this: [ KEY, VALUE ]
+
+    Console.WriteLine($"Country: {key.Key}, Currency: {key.Value}");
+}
+
 Console.ReadKey();
