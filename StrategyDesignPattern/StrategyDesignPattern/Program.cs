@@ -14,28 +14,36 @@ Console.WriteLine(string.Join(Environment.NewLine, filteringStrategySelector.Fil
 
 var userInput = Console.ReadLine();
 
-List<int> result = new NumbersFilter().FilterBy(filteringStrategySelector.Select(userInput), numbers);
+IEnumerable<int> result = new Filter().FilterBy(filteringStrategySelector.Select(userInput), numbers);
+
+// Since it's now of a generic type, we can get away with things like...
+
+List<string> words = new List<string> { "otter", "cow", "dog" };
+var oWords = new Filter().FilterBy(word => word.StartsWith("o"), words);
+
 
 Print(result);
 Print(numbers);
+Print(words);
+Print(oWords);
 
 Console.ReadKey();
 
 // The strategy pattern lets us define a family of algorithms that perform some tasks, the concrete strategy can be chosen at runtime.
 
-void Print(IEnumerable<int> numbers)
+void Print<T>(IEnumerable<T> input)
 {
-    Console.WriteLine(string.Join(", ", numbers));
+    Console.WriteLine(string.Join(", ", input));
 }
 
-public class NumbersFilter
+public class Filter
 {
     // This method should never need to be modified.
-    public List<int> FilterBy(Func<int, bool> predicate, List<int> numbers)
+    public IEnumerable<T> FilterBy<T>(Func<T, bool> predicate, IEnumerable<T> numbers)
     {
-        List<int> result = new List<int>();
+        List<T> result = new List<T>();
 
-        foreach (int number in numbers)
+        foreach (T number in numbers)
         {
             if (predicate(number)) result.Add(number);
         }
