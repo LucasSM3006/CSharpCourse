@@ -4,7 +4,9 @@
 
 Console.WriteLine(@"Select filter:
 Even
-Odd");
+Odd
+Positive
+Negative");
 
 var userInput = Console.ReadLine();
 
@@ -28,70 +30,27 @@ public class NumbersFilter
         switch (filteringType.ToLower())
         {
             case "even":
-                return SelectEven(numbers);
+                return Select(numbers, n => n % 2 == 0);
             case "odd":
-                return SelectOdd(numbers);
+                return Select(numbers, n => n % 2 != 0);
             case "positive":
-                return SelectPositive(numbers);
+                return Select(numbers, n => n > 0);
             case "negative":
-                return SelectNegative(numbers);
+                return Select(numbers, n => n < 0);
             default:
                 throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
         }
     }
 
-    private List<int> SelectEven(List<int> numbers)
+    private List<int> Select(List<int> numbers, Func<int, bool> predicate)
     {
-        List<int> evenNumbers = new List<int>();
+        List<int> result = new List<int>();
 
         foreach (int number in numbers)
         {
-            if (number % 2 == 0) evenNumbers.Add(number);
+            if (predicate(number)) result.Add(number);
         }
 
-        return evenNumbers;
+        return result;
     }
-
-    private List<int> SelectOdd(List<int> numbers)
-    {
-        List<int> oddNumbers = new List<int>();
-
-        foreach (int number in numbers)
-        {
-            if (number % 2 != 0) oddNumbers.Add(number);
-        }
-
-        return oddNumbers;
-    }
-
-    private List<int> SelectPositive(List<int> numbers)
-    {
-        List<int> positiveNumbers = new List<int>();
-
-        foreach (int number in numbers)
-        {
-            if (number > 0)
-            {
-                positiveNumbers.Add(number);
-            }
-        }
-
-        return positiveNumbers;
-    }
-
-    private List<int> SelectNegative(List<int> numbers)
-    {
-        List<int> negativeNumbers = new List<int>();
-
-        foreach (int number in numbers)
-        {
-            if (number < 0)
-            {
-                negativeNumbers.Add(number);
-            }
-        }
-
-        return negativeNumbers;
-    }
-
 }
