@@ -1,6 +1,9 @@
 ﻿var numbers = new List<int> { 10, 12, -100, 55, 17, 22 };
 
-// Now say we want to allow the user to choose how those numbers are filter, like when they enter "even" or "odd", or "positive", etc.
+// There is also going to be an implementation of the open closed principle
+// The principle that dictates that "modules, classes, and functions, should be opened for extension, but closed for modification"
+// Aka, we should create our in code in a way that its behaviour changes by adding new code, and not modifying existing code.
+// It brings positive sides, such as the code always working, tests like unit tests not needing to be added or updated, no new surprises, and y'won't need a new version of it
 
 Console.WriteLine(@"Select filter:
 Even
@@ -25,6 +28,7 @@ void Print(IEnumerable<int> numbers)
 
 public class NumbersFilter
 {
+    // This is pretty good, but now it breaks SRP and is also going to need to be modified in the future if we want to add new things.
     public List<int> FilterBy(string filteringType, List<int> numbers)
     {
         switch (filteringType.ToLower())
