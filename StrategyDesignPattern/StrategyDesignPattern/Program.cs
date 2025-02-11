@@ -6,11 +6,11 @@ FilteringStrategySelector filteringStrategySelector = new FilteringStrategySelec
 // Aka, we should create our in code in a way that its behaviour changes by adding new code, and not modifying existing code.
 // It brings positive sides, such as the code always working, tests like unit tests not needing to be added or updated, no new surprises, and y'won't need a new version of it
 
-Console.WriteLine(@"Select filter:
-Even
-Odd
-Positive
-Negative");
+
+// So far, the code is looking good, but THIS below is an eye sore due to us needing to update it if we add more filters, which means it has to go, and use the keys of the dictionary we created.
+// The dictionary was an alternative way, but since it's the only way to achieve what we want without extreme levels of complexity, we'll do just that.
+Console.WriteLine("Select filter:");
+Console.WriteLine(string.Join(Environment.NewLine, filteringStrategySelector.FilteringStrategiesNames));
 
 var userInput = Console.ReadLine();
 
@@ -46,41 +46,26 @@ public class NumbersFilter
 
 public class FilteringStrategySelector
 {
-    /*
-     * private readonly Dictionary<string, Func<int, bool>> _filteringStrategies =
-     * new Dictionary<string, Func<int, bool>>
-     * {
-     *      ["even"] = n => n % 2 == 0,
-     *      ["odd"] = n => n % 2 != 0,
-     *      ["positive"] = n => n > 0,
-     *      ["negative"] = n => n < 0
-     * };
-     * 
-     */
+
+    public readonly Dictionary<string, Func<int, bool>> _filteringStrategies =
+    new Dictionary<string, Func<int, bool>>
+    {
+        ["even"] = n => n % 2 == 0,
+        ["odd"] = n => n % 2 != 0,
+        ["positive"] = n => n > 0,
+        ["negative"] = n => n < 0
+    };
+
+    public IEnumerable<string> FilteringStrategiesNames => _filteringStrategies.Keys;
+
     public Func<int, bool> Select(string filteringType)
     {
-        /* // Alternative way of doing it.
-         * 
-         * if(!_filteringStrategies.ContainsKey(filteringType))
-         * {
-         *      throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
-         * }
-         * 
-         * return _filteringStrategies[filteringType.ToLower()];
-         * 
-         */
-        switch (filteringType.ToLower())
-        {
-            case "even":
-                return n => n % 2 == 0;
-            case "odd":
-                return n => n % 2 != 0;
-            case "positive":
-                return n => n > 0;
-            case "negative":
-                return n => n < 0;
-            default:
-                throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
-        }
+
+         if(!_filteringStrategies.ContainsKey(filteringType.ToLower()))
+         {
+              throw new NotSupportedException($"Invalid user input, {filteringType} is not a filter.");
+         }
+         
+         return _filteringStrategies[filteringType.ToLower()];
     }
 }
