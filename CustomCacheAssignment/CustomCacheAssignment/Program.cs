@@ -1,21 +1,21 @@
 ﻿SlowDataDownloader dataDownloader = new SlowDataDownloader();
 
-Console.WriteLine(dataDownloader.Download("id1"));
-Console.WriteLine(dataDownloader.Download("id2"));
-Console.WriteLine(dataDownloader.Download("id3"));
-Console.WriteLine(dataDownloader.Download("id1"));
-Console.WriteLine(dataDownloader.Download("id3"));
-Console.WriteLine(dataDownloader.Download("id1"));
-Console.WriteLine(dataDownloader.Download("id2"));
+Console.WriteLine(dataDownloader.DownloadData("id1"));
+Console.WriteLine(dataDownloader.DownloadData("id2"));
+Console.WriteLine(dataDownloader.DownloadData("id3"));
+Console.WriteLine(dataDownloader.DownloadData("id1"));
+Console.WriteLine(dataDownloader.DownloadData("id3"));
+Console.WriteLine(dataDownloader.DownloadData("id1"));
+Console.WriteLine(dataDownloader.DownloadData("id2"));
 
 public interface IDataDownloader
 {
-    public string Download(string id);
+    public string DownloadData(string id);
 }
 
 public class SlowDataDownloader : IDataDownloader
 {
-    public string Download(string id)
+    public string DownloadData(string id)
     {
         if(CachedData.FindById(id) is not null)
         {
@@ -30,7 +30,13 @@ public class SlowDataDownloader : IDataDownloader
 
 public class Cache<TKey, TData>
 {
-    private Dictionary<TKey, TData> cachedData = new Dictionary<TKey, TData>();
+    private Dictionary<TKey, TData> _cachedData = new Dictionary<TKey, TData>();
+    private IDataDownloader _dataDownloader;
+
+    public Cache(IDataDownloader dataDownloader)
+    {
+        _dataDownloader = dataDownloader;
+    }
 
     private void StoreData<TData>(TData data)
     {
@@ -39,12 +45,12 @@ public class Cache<TKey, TData>
 
     private TData Get(TKey key)
     {
-        if (!cachedData.ContainsKey(key))
+        if (!_cachedData.ContainsKey(key))
         {
-            cachedData.Add(key, dataRepository.GetDataById(key));
+            _cachedData[key] = _dataDownloader.DownloadData(key);
         }
 
-        return cachedData[key];
+        return _cachedData[key];
     }
 }
 
@@ -56,6 +62,13 @@ public interface IDataRepository<TKey, TData>
 
 public class DataRepository<TKey, TData> : IDataRepository<TKey, TData>
 {
+    private Dictionary<TKey, TData> data = new Dictionary<TKey, TData> ();
+
+    public DataRepository()
+    {
+        data.Add(new KeyValuePair<TKey, TData>(TKey, TData));
+    }
+
     public KeyValuePair<TKey, TData> GetById(TKey key)
     {
         throw new NotImplementedException();
