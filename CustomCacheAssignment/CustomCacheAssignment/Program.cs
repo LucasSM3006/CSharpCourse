@@ -27,3 +27,42 @@ public class SlowDataDownloader : IDataDownloader
         return $"some data for {id}";
     }
 }
+
+public class Cache<TKey, TData>
+{
+    private Dictionary<TKey, TData> cachedData = new Dictionary<TKey, TData>();
+
+    private void StoreData<TData>(TData data)
+    {
+
+    }
+
+    private TData Get(TKey key)
+    {
+        if (!cachedData.ContainsKey(key))
+        {
+            cachedData.Add(key, dataRepository.GetDataById(key));
+        }
+
+        return cachedData[key];
+    }
+}
+
+public interface IDataRepository<TKey, TData>
+{
+    public void Save(TKey key, TData data);
+    public KeyValuePair<TKey, TData> GetById(TKey key);
+}
+
+public class DataRepository<TKey, TData> : IDataRepository<TKey, TData>
+{
+    public KeyValuePair<TKey, TData> GetById(TKey key)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Save(TKey key, TData data)
+    {
+        throw new NotImplementedException();
+    }
+}
