@@ -27,4 +27,25 @@ foreach (var word in shortwords) // The second iteration is updated with the que
 
 // Basically, the query is only executed when it is needed, which means that whenever we run a loop with it or do whatever with it, it'll "update".
 
+
+
+
+
+
+
+// A more wonky example.
+
+var animals = new List<string> { "Duck", "Lion", "Tiger", "Dolphin" };
+
+var animalsStartingWithD = animals.Where(
+    animal =>
+    {
+        Console.WriteLine("Checking animal: " + animal);
+        return animal.StartsWith('D');
+    });
+
+foreach(var animal in animalsStartingWithD)
+{
+    Console.WriteLine(animal);
+}
 Console.ReadKey();
