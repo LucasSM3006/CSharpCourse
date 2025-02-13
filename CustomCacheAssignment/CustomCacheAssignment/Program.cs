@@ -1,5 +1,6 @@
 ﻿IDataDownloader dataDownloader = new SlowDataDownloader(); // Now if we don't need caching all we need to do is assign this to the SlowDataDownloader
 // IDataDownloader dataDownloader = new CachingDataDownloader(new SlowDataDownloader()); // This will do caching, however.
+// IDataDownloader dataDownloader = new CachingDataDownloader(new PrintingDataDownloader(new SlowDataDownloader()));
 
 Console.WriteLine(dataDownloader.DownloadData("id1"));
 Console.WriteLine(dataDownloader.DownloadData("id2"));
@@ -30,6 +31,24 @@ public class CachingDataDownloader : IDataDownloader // This class only cares ab
         return _cache.Get(id, _dataDownloader.DownloadData); // Now sends the method that _dataDownloader holds.
     }
 }
+
+public class PrintingDataDownloader : IDataDownloader // This class only cares about the caching, not the downloading
+{
+    private readonly IDataDownloader _dataDownloader;
+
+    public PrintingDataDownloader(IDataDownloader dataDownloader)
+    {
+        _dataDownloader = dataDownloader;
+    }
+
+    public string DownloadData(string id)
+    {
+        var data = _dataDownloader.DownloadData(id);
+        Console.WriteLine("data is ready!");
+        return data;
+    }
+}
+
 public interface IDataDownloader
 {
     public string DownloadData(string id);
