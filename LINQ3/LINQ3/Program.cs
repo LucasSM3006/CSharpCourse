@@ -77,6 +77,16 @@ if(isAnyPetAFishNamedAquaThatWeighsOverAHundred)
     Console.WriteLine("Yep, there's an Aqua here.");
 }
 
+// Now for the opposite of Any(), All().
+
+bool areAllBiggerThanZero = numbers.All(number => number > 0);
+bool areAllWordsBiggerThanOneInLength = randomWords.All(word => word.Length > 1);
+bool areAllPetsLargerThanZeroKilograms = pets.All(pet => pet.Weight > 0);
+
+if(areAllBiggerThanZero) Console.WriteLine("All numbers larger than zero");
+if(areAllWordsBiggerThanOneInLength) Console.WriteLine("All words are bigger than one in length");
+if(areAllPetsLargerThanZeroKilograms) Console.WriteLine("All pets have a weight higher than zero");
+
 Console.ReadKey();
 
 public class Pet
