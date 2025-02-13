@@ -70,6 +70,13 @@ if(isAnyPetNamedArque)
     Console.WriteLine("Someone is named arque");
 }
 
+var isAnyPetAFishNamedAquaThatWeighsOverAHundred = pets.Any(pet => pet.Type.Equals(PetType.Fish) && pet.Name.Equals("Aqua") && pet.Weight > 100);
+
+if(isAnyPetAFishNamedAquaThatWeighsOverAHundred)
+{
+    Console.WriteLine("Yep, there's an Aqua here.");
+}
+
 Console.ReadKey();
 
 public class Pet
