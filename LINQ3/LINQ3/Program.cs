@@ -51,4 +51,46 @@ if(isAnyLargerThan100)
     Console.WriteLine("There's a number larger than 100.");
 }
 
+var pets = new[]
+{
+    new Pet(1, "Alik", PetType.Fish, 0.2),
+    new Pet(2, "Arque", PetType.Dog, 0.2),
+    new Pet(3, "Ronaldo", PetType.Cat, 0.2),
+    new Pet(4, "Ezekiel", PetType.Fish, 0.2),
+    new Pet(5, "Judas", PetType.Cat, 0.2),
+    new Pet(6, "Loah", PetType.Dog, 0.2),
+    new Pet(7, "Alga", PetType.Fish, 0.01),
+    new Pet(8, "Aqua", PetType.Fish, 240.5)
+};
+
+var isAnyPetNamedArque = pets.Any(pet => pet.Name.Equals("Arque"));
+
+if(isAnyPetNamedArque)
+{
+    Console.WriteLine("Someone is named arque");
+}
+
 Console.ReadKey();
+
+public class Pet
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public PetType Type { get; set; }
+    public double Weight { get; set; }
+
+    public Pet(int id, string name, PetType type, double weight)
+    {
+        Id = id;
+        Name = name;
+        Type = type;
+        Weight = weight;
+    }
+}
+
+public enum PetType
+{
+    Fish,
+    Dog,
+    Cat
+}
