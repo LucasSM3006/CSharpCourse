@@ -192,6 +192,36 @@ Pet lastDog = pets.LastOrDefault(pet => pet.Weight > 500); // Returns the defaul
 
 var heaviestPet = pets.OrderBy(pet => pet.Weight).Last();
 
+
+// *****************************************************************
+// Where.
+// *****************************************************************
+
+var evenNumbers = numbers.Where(number => number % 2 == 0);
+var petsBelow10KG = pets.Where(pet => pet.Weight < 10);
+var petsAbove10KG = pets.Where(pet => pet.Weight > 10);
+var petsWith10KG = pets.Where(pet => pet.Weight == 10);
+
+var specificPets = pets.Where(pet => pet.Type == PetType.Cat && pet.Weight > 2 && (pet.Name.StartsWith("A") || pet.Name.StartsWith("R")));
+
+// A more complex one.
+
+var indexesSelectedByUser = new[] { 1, 6, 7 };
+var petsSelectedByUserAndBelow5kg = pets
+    .Where((pet, index) =>
+        pet.Weight < 5 &&
+        indexesSelectedByUser.Contains(index));
+
+foreach (var number in evenNumbers)
+{
+    Console.WriteLine(number);
+}
+
+foreach (var pet in petsSelectedByUserAndBelow5kg)
+{
+    Console.WriteLine(pet.Name);
+}
+
 Console.ReadKey();
 
 public class Pet
