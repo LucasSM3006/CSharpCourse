@@ -122,6 +122,56 @@ bool is100PresentInNumbers = numbers.Contains(100);
 
 if(is100PresentInNumbers) Console.WriteLine("100 is present.");
 
+// *****************************************************************
+// OrderBy, OrderByDescending, ThenBy and ThenByDescending.
+// *****************************************************************
+
+var petsOrderedByName = pets.OrderBy(pet => pet.Name);
+var orderedNumbers = numbers.OrderBy(number => number);
+var orderedStringsDescending = randomWords.OrderByDescending(word => word);
+var petsOrderedByIdDescending = pets.OrderByDescending(pet => pet.Id);
+
+foreach (var pet in petsOrderedByName)
+{
+    Console.WriteLine(pet.Name);
+}
+
+Console.WriteLine();
+
+foreach(var number in orderedNumbers)
+{
+    Console.WriteLine(number);
+}
+
+Console.WriteLine();
+
+foreach (var word in orderedStringsDescending)
+{
+    Console.WriteLine(word);
+}
+
+Console.WriteLine();
+
+foreach (var pet in petsOrderedByIdDescending)
+{
+    Console.WriteLine(pet.Id);
+}
+
+Console.WriteLine();
+
+// ThenBy.
+
+var petsOrderedByTypeThenName = pets
+    .OrderBy(pet => pet.Type)
+    .ThenBy(pet => pet.Name);
+
+foreach(var pet in petsOrderedByTypeThenName)
+{
+    Console.WriteLine(pet.Type);
+    Console.WriteLine(pet.Name);
+}
+
+
 Console.ReadKey();
 
 public class Pet
