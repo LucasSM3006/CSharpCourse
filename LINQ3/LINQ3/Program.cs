@@ -27,10 +27,11 @@ Console.WriteLine("Hello!");
 
 var randomWords = new List<string> { "aaaaa", "bbasdfas", "buffon", "verylongword", "o"};
 
-
+// *****************************************************************
 // Any method.
+// *****************************************************************
 
-if(randomWords.Any(word => word.Length == 1))
+if (randomWords.Any(word => word.Length == 1))
 {
     Console.WriteLine("There's one word in the list with a length of one.");
 }
@@ -80,7 +81,9 @@ if(isAnyPetAFishNamedAquaThatWeighsOverAHundred)
     Console.WriteLine("Yep, there's an Aqua here.");
 }
 
+// *****************************************************************
 // Now for the opposite of Any(), All().
+// *****************************************************************
 
 bool areAllBiggerThanZero = numbers.All(number => number > 0);
 bool areAllWordsBiggerThanOneInLength = randomWords.All(word => word.Length > 1);
@@ -90,7 +93,9 @@ if(areAllBiggerThanZero) Console.WriteLine("All numbers larger than zero");
 if(areAllWordsBiggerThanOneInLength) Console.WriteLine("All words are bigger than one in length");
 if(areAllPetsLargerThanZeroKilograms) Console.WriteLine("All pets have a weight higher than zero");
 
+// *****************************************************************
 // Count and LongCount.
+// *****************************************************************
 
 var countOfFish = pets.Count(pet => pet.Type == PetType.Fish);
 var countOfDogs = pets.Count(pet => pet.Type == PetType.Dog);
@@ -105,6 +110,17 @@ var countOfFishNamedAqua = pets.LongCount(pet => pet.Name.Equals("Aqua"));
 Console.WriteLine($"Count of fish named Aqua: {countOfFishNamedAqua}");
 
 Console.WriteLine($"Count of numbers bigger than ten in the numbers array: {countOfNumbersBiggerThanTen}");
+
+// *****************************************************************
+// Contains method, checks if a certain element is in a collection.
+// *****************************************************************
+bool is3PresentInNumbers = numbers.Contains(3);
+
+if(is3PresentInNumbers) Console.WriteLine("3 is present.");
+
+bool is100PresentInNumbers = numbers.Contains(100);
+
+if(is100PresentInNumbers) Console.WriteLine("100 is present.");
 
 Console.ReadKey();
 
