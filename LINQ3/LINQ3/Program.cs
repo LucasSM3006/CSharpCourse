@@ -25,7 +25,7 @@ Console.WriteLine($"Ordered numbers ALT: {{ {string.Join(", ", orderedOddNumbers
 
 Console.WriteLine("Hello!");
 
-var randomWords = new List<string> { "aaaaa", "bbasdfas", "buffon", "verylongword", "o"};
+var randomWords = new List<string> { "aaaaa", "bbasdfas", "buffon", "verylongword", "o" };
 
 // *****************************************************************
 // Any method.
@@ -36,21 +36,21 @@ if (randomWords.Any(word => word.Length == 1))
     Console.WriteLine("There's one word in the list with a length of one.");
 }
 
-if(randomWords.Any(word => word.StartsWith('a')))
+if (randomWords.Any(word => word.StartsWith('a')))
 {
     Console.WriteLine("There's one word in the list that starts with 'a'.");
 }
 
 var randomNumbers = new[] { 5, 9, 8, 12, 200 };
 
-if(randomNumbers.Any(number => number > 10))
+if (randomNumbers.Any(number => number > 10))
 {
     Console.WriteLine("There's a number larger than 10!");
 }
 
 bool isAnyLargerThan100 = randomNumbers.Any(number => number > 100);
 
-if(isAnyLargerThan100)
+if (isAnyLargerThan100)
 {
     Console.WriteLine("There's a number larger than 100.");
 }
@@ -69,14 +69,14 @@ var pets = new[]
 
 var isAnyPetNamedArque = pets.Any(pet => pet.Name.Equals("Arque"));
 
-if(isAnyPetNamedArque)
+if (isAnyPetNamedArque)
 {
     Console.WriteLine("Someone is named arque");
 }
 
 var isAnyPetAFishNamedAquaThatWeighsOverAHundred = pets.Any(pet => pet.Type.Equals(PetType.Fish) && pet.Name.Equals("Aqua") && pet.Weight > 100);
 
-if(isAnyPetAFishNamedAquaThatWeighsOverAHundred)
+if (isAnyPetAFishNamedAquaThatWeighsOverAHundred)
 {
     Console.WriteLine("Yep, there's an Aqua here.");
 }
@@ -89,9 +89,9 @@ bool areAllBiggerThanZero = numbers.All(number => number > 0);
 bool areAllWordsBiggerThanOneInLength = randomWords.All(word => word.Length > 1);
 bool areAllPetsLargerThanZeroKilograms = pets.All(pet => pet.Weight > 0);
 
-if(areAllBiggerThanZero) Console.WriteLine("All numbers larger than zero");
-if(areAllWordsBiggerThanOneInLength) Console.WriteLine("All words are bigger than one in length");
-if(areAllPetsLargerThanZeroKilograms) Console.WriteLine("All pets have a weight higher than zero");
+if (areAllBiggerThanZero) Console.WriteLine("All numbers larger than zero");
+if (areAllWordsBiggerThanOneInLength) Console.WriteLine("All words are bigger than one in length");
+if (areAllPetsLargerThanZeroKilograms) Console.WriteLine("All pets have a weight higher than zero");
 
 // *****************************************************************
 // Count and LongCount.
@@ -116,11 +116,11 @@ Console.WriteLine($"Count of numbers bigger than ten in the numbers array: {coun
 // *****************************************************************
 bool is3PresentInNumbers = numbers.Contains(3);
 
-if(is3PresentInNumbers) Console.WriteLine("3 is present.");
+if (is3PresentInNumbers) Console.WriteLine("3 is present.");
 
 bool is100PresentInNumbers = numbers.Contains(100);
 
-if(is100PresentInNumbers) Console.WriteLine("100 is present.");
+if (is100PresentInNumbers) Console.WriteLine("100 is present.");
 
 // *****************************************************************
 // OrderBy, OrderByDescending, ThenBy and ThenByDescending.
@@ -138,7 +138,7 @@ foreach (var pet in petsOrderedByName)
 
 Console.WriteLine();
 
-foreach(var number in orderedNumbers)
+foreach (var number in orderedNumbers)
 {
     Console.WriteLine(number);
 }
@@ -165,7 +165,7 @@ var petsOrderedByTypeThenName = pets
     .OrderBy(pet => pet.Type)
     .ThenBy(pet => pet.Name);
 
-foreach(var pet in petsOrderedByTypeThenName)
+foreach (var pet in petsOrderedByTypeThenName)
 {
     Console.WriteLine(pet.Type);
     Console.WriteLine(pet.Name);
@@ -221,6 +221,36 @@ foreach (var pet in petsSelectedByUserAndBelow5kg)
 {
     Console.WriteLine(pet.Name);
 }
+
+
+
+// *****************************************************************
+// Distinct.
+// *****************************************************************
+
+var numbersWithDuplicates = new[] { 1, 2, 3, 4, 5, 5, 6, 2, 1, 2, 3, 4, 4, 5, 6, 7, 7, 7, 7, 8, 9, 8 };
+var petsWithDuplicates = new List<Pet>
+{
+    new Pet(1, "Aaa", PetType.Fish, 10),
+    new Pet(1, "Aaa", PetType.Fish, 10)
+};
+
+var numbersNoDuplicates = numbersWithDuplicates.Distinct();
+var petsNoDuplicates = petsWithDuplicates.DistinctBy(x => x.Name);
+
+foreach (var number in numbersNoDuplicates)
+{
+    Console.WriteLine(number);
+}
+
+Console.WriteLine();
+
+foreach (var p in petsNoDuplicates)
+{
+    Console.WriteLine(p.Name);
+}
+
+Console.WriteLine();
 
 Console.ReadKey();
 
