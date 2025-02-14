@@ -58,7 +58,7 @@ if (isAnyLargerThan100)
 var pets = new[]
 {
     new Pet(1, "Alik", PetType.Fish, 0.2),
-    new Pet(2, "Arque", PetType.Dog, 0.2),
+    new Pet(2, "Arque", PetType.Dog, 5),
     new Pet(3, "Ronaldo", PetType.Cat, 0.2),
     new Pet(4, "Ezekiel", PetType.Fish, 0.2),
     new Pet(5, "Judas", PetType.Cat, 0.2),
@@ -252,6 +252,34 @@ foreach (var p in petsNoDuplicates)
 
 Console.WriteLine();
 
+// *****************************************************************
+// Select.
+// *****************************************************************
+
+var doubledNumbers = numbers.Select(x => x * 2);
+var randomWordsToUpper = randomWords.Select(x => x.ToUpper());
+var numbersAsStrings = numbers.Select(x => x.ToString());
+var numberedWords = numbers.Select((word, index) => $"{index + 1}. {word}");
+// You can also create specific collections of certain things, ie:
+var petNames = pets.Select(pet => pet.Name);
+var heavyPetTypes = pets.Where(pet => pet.Weight > 4).Select(pet => pet.Type).Distinct();
+var petsInitials = pets.OrderBy(pet => pet.Name).Select(pet => $"{pet.Name.First()}");
+var petsData = pets.Select(pet => $"Pet Id is {pet.Id}; Name is {pet.Name}; Type is {pet.Type}; Weight is: {pet.Weight}");
+
+Printer.Print(doubledNumbers);
+
+Printer.Print(randomWordsToUpper);
+
+Printer.Print(numbersAsStrings);
+
+Printer.Print(numberedWords);
+
+Printer.Print(petNames);
+
+Printer.Print(heavyPetTypes);
+
+Printer.Print(petsData);
+
 Console.ReadKey();
 
 public class Pet
@@ -275,4 +303,16 @@ public enum PetType
     Fish,
     Dog,
     Cat
+}
+
+public class Printer
+{
+    public static void Print<TData>(IEnumerable<TData> list)
+    {
+        foreach (var item in list)
+        {
+            Console.WriteLine(item);
+        }
+        Console.WriteLine();
+    }
 }
