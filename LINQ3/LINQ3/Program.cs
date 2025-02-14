@@ -27,6 +27,9 @@ Console.WriteLine("Hello!");
 
 var randomWords = new List<string> { "aaaaa", "bbasdfas", "buffon", "verylongword", "o"};
 
+
+// Any method.
+
 if(randomWords.Any(word => word.Length == 1))
 {
     Console.WriteLine("There's one word in the list with a length of one.");
@@ -86,6 +89,22 @@ bool areAllPetsLargerThanZeroKilograms = pets.All(pet => pet.Weight > 0);
 if(areAllBiggerThanZero) Console.WriteLine("All numbers larger than zero");
 if(areAllWordsBiggerThanOneInLength) Console.WriteLine("All words are bigger than one in length");
 if(areAllPetsLargerThanZeroKilograms) Console.WriteLine("All pets have a weight higher than zero");
+
+// Count and LongCount.
+
+var countOfFish = pets.Count(pet => pet.Type == PetType.Fish);
+var countOfDogs = pets.Count(pet => pet.Type == PetType.Dog);
+var countOfCats = pets.Count(pet => pet.Type == PetType.Cat);
+
+Console.WriteLine($"Count of fish is {countOfFish}; Count of dogs is {countOfDogs}; Count of cats is {countOfCats}");
+
+var countOfNumbersBiggerThanTen = numbers.Count(number => number > 10);
+// If the value in question was higher than the maximum value of int, which is 2,147,483,647, we instead use CountLong.
+
+var countOfFishNamedAqua = pets.LongCount(pet => pet.Name.Equals("Aqua"));
+Console.WriteLine($"Count of fish named Aqua: {countOfFishNamedAqua}");
+
+Console.WriteLine($"Count of numbers bigger than ten in the numbers array: {countOfNumbersBiggerThanTen}");
 
 Console.ReadKey();
 
