@@ -171,6 +171,26 @@ foreach(var pet in petsOrderedByTypeThenName)
     Console.WriteLine(pet.Name);
 }
 
+Console.WriteLine();
+
+// *****************************************************************
+// First and Last.
+// *****************************************************************
+
+// They also throw exceptions, so make sure they're not empty.
+var firstPet = pets.First();
+var lastPet = pets.Last();
+var firstNumber = orderedNumbers.First();
+var lastNumber = orderedNumbers.Last();
+
+Pet firstPetThatNameStartsWithA = pets.First(pet => pet.Name.StartsWith("A"));
+var firstOdd = orderedNumbers.First(n => n % 2 != 0);
+
+// Ie, this would throw an exception: Sequence contains no matching element.
+// Pet lastDog = pets.Last(pet => pet.Weight > 500);
+Pet lastDog = pets.LastOrDefault(pet => pet.Weight > 500); // Returns the default value if there's nothing that matches the criteria given.
+
+var heaviestPet = pets.OrderBy(pet => pet.Weight).Last();
 
 Console.ReadKey();
 
