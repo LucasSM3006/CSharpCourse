@@ -5,23 +5,17 @@
     new List<int> { 5, -6, -2, -12, -10, 7 }
 };
 
-var result = listsOfNumbers.Select(listOfNumber => new CountAndAverage
+var result = listsOfNumbers.Select(listOfNumber => new
 {
     Count = listOfNumber.Count,
     Average = listOfNumber.Average()
 })
-    .OrderByDescending(countAndAverage => countAndAverage.Count)
-    .Select(c => $"Count is: {c.Count}, Average is: {c.Average}");
+.OrderByDescending(countAndAverage => countAndAverage.Average)
+.Select(c => $"Count is: {c.Count}, Average is: {c.Average}");
 
-foreach(var r in result)
+foreach (var r in result)
 {
     Console.WriteLine(r);
 }
 
 Console.ReadKey();
-
-public class CountAndAverage
-{
-    public int Count { get; set; }
-    public double Average { get; set; }
-}
