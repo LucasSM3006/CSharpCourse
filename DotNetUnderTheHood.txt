@@ -71,3 +71,42 @@ And num2's value and hashcode will be different because they're different variab
 Person person1 = new Person();
 Person person2 = person1;
 If we run a person1.Equals(person2), the result will be true, and if we modify a variable in person2, or person1, they will both be modified. This is because we didn't create a new object for person2, we merely "told" it that it now holds the location of person1.
+
+
+
+Value types:
+Value semantics;
+Derived from System.ValueType;
+Simple build-in types, (int, decimal, DateTime, bool, etc.)
+These are all structs.
+
+Reference types:
+Reference semantics;
+Derived from System.Object;
+Build-in classes and our classes are them.
+List<T>, object, array.
+All classes.
+
+The real difference is that
+var listA = new List<T>;
+listA holds a reference to the location of it in memory, so much so that we can lose the values entirely if we do...
+
+var listA = new List<T>;
+var listB = new List<T>;
+listA = listB;
+
+The code above would make it impossible to ever get the values out of the list it used to refer to.
+
+int a = 5; in the meantime, 'a' stores the value.
+
+We make copies of values, like jotting down information on different pieces of paper. What we write on paper1 won't change paper2's values.
+
+We don't make copies of references, we merely point towards them. Like asking where the paper in the previous example is located at.
+
+
+As for what goes on in memory;
+
+Value types are sent to the stack due to their simplicity.
+Reference types on the other hand, the value of the reference is sent to the stack while the actual data is sent to the heap.
+(The above explanation is simplified, aka, abstracted.)
+
