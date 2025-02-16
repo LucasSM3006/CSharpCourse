@@ -1,0 +1,59 @@
+Common Intermediate Language (CIL)
+
+How and when it's compiled into binary code by the JIT compiler.
+
+Compiler turns .cs files into binary code, but there's more, two compilers.
+
+When we build, the compiler (Named Roslyn), starts working, taking the .cs files and compiling them into CIL code which has a similar structure to java's bytecode. It's human readable, but not as much.
+
+After we start it, the JIT compiler compiles the CIL into binary code and we can actually run that. It allows cross-platform compatibility so long as you have the .NET framework (which isn't C#, it's more akin to a framework, C# just so happens to be what we run on it most of the time.)
+
+Not all files are compiled when we run as well since it's a JIT compiler.
+
+
+Common Language Runtime (CLR)
+
+It's a runtime environment that manages the execution of .NET apps.
+Does the work we'd need to do on a lower level language like C, or ASM, like managing memory allocation.
+
+The CLR manages all programs under .NET, so your F# or Iron Python apps as well.
+
+A few of its responsibilities:
+
+JIT Compilation;
+Memory management (includes garbage collection);
+Error handling;
+Thread management.
+
+Step by step, it goes like:
+
+Step 1. We write code;
+Step 2. Compiler compiles code into CIL;
+Step 3. CLR kicks in, starts the program;
+Step 4. CLR JIT compiles the CIL to binary;
+Step 5. CLR manages the resources available to it & low level responsibilities.
+
+
+MEMORY. Stack and heap.
+
+We allocate memory no matter what we're doing, specifically, RAM.
+
+Memory addresses, which are used on lower level languages by way of pointers... When we manipulate a variable in code, we're technically using the pointer, but in a different manner. In C, we can send an entire pointer as the parameter of a function, which in turn would allow us to make a function which technically returns no value but does manipulate the input which we sent to it, so much so that we could reset the address altogether and that memory address would forever become unavailable until we reset the machine.
+
+Stack:
+
+One per thread
+Stacks are small, 1-4MB
+No gaps between data
+Automatical removal
+Faster
+
+Heap:
+
+One per app
+Heaps are larger
+Can have chunks of empty data, defragmented
+Cleaned up by the garbage collector
+Slower
+
+Example of value semantics & reference semantics in code on a project.
