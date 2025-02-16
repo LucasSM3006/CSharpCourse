@@ -56,4 +56,18 @@ Can have chunks of empty data, defragmented
 Cleaned up by the garbage collector
 Slower
 
-Example of value semantics & reference semantics in code on a project.
+Example of value semantics & reference semantics in code on a project called "ReferenceVsValue"
+
+TLDR of it, though:
+
+Value is the value being held by it
+Reference would be more akin to the place it is stored
+
+While we can do
+int num1 = 5;
+int num2 = num1;
+num2++;
+And num2's value and hashcode will be different because they're different variables, if we make a custom object like
+Person person1 = new Person();
+Person person2 = person1;
+If we run a person1.Equals(person2), the result will be true, and if we modify a variable in person2, or person1, they will both be modified. This is because we didn't create a new object for person2, we merely "told" it that it now holds the location of person1.
