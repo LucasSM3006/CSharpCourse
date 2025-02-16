@@ -16,11 +16,18 @@ public class IngredientsRegister : IIngredientsRegister
 
     public Ingredient GetById(int id)
     {
-        foreach (Ingredient ingredient in All)
+        var countOfIngredientsWithGivenId = All.Where(ingredient => ingredient.Id == id);
+
+        if(countOfIngredientsWithGivenId.Count() > 1)
         {
-            if (ingredient.Id == id) return ingredient;
+            throw new InvalidOperationException($"Duplicate elements found! Id is: {id}");
         }
 
-        return null;
+        //if(All.Select(ingredient => ingredient.Id).Distinct().Count() != All.Count())
+        //{
+        //    throw new InvalidOperationException($"Some ingredients have duplicate ids.");
+        //}
+
+        return countOfIngredientsWithGivenId.FirstOrDefault();
     }
 }
