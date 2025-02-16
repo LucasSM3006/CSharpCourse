@@ -20,11 +20,7 @@ public class RecipesConsoleUserInteraction : IRecipesUserInteraction
     public void PromptToCreateRecipes()
     {
         Console.WriteLine("Create a cookie recipe! Available ingredients are:");
-
-        foreach (Ingredient ingredient in _ingredientsRegister.All)
-        {
-            Console.WriteLine(ingredient);
-        }
+        Console.WriteLine(string.Join(Environment.NewLine, _ingredientsRegister.All));
     }
 
     public void PrintExistingRecipes(IEnumerable<Recipe> recipes)
@@ -33,15 +29,24 @@ public class RecipesConsoleUserInteraction : IRecipesUserInteraction
         {
             Console.WriteLine("Existing recipes are: " + Environment.NewLine); // Newline's better to use than '\n'. Apparently it can cause issues due to different OS's.
 
-            int counter = 0;
+            //int counter = 0;
 
-            foreach (Recipe recipe in recipes)
-            {
-                Console.WriteLine($"*****{counter + 1}*****");
-                Console.WriteLine(recipe);
-                Console.WriteLine();
-                counter++;
-            }
+            //var recipesAsStrings = recipes.Select(recipe =>
+            //{
+            //    var str = $"*****{counter + 1}*****{Environment.NewLine}{recipe}{Environment.NewLine}";
+            //    counter++;
+            //    return str;
+            //}); // My way of doing it.
+
+            // Professor's way of doing it.
+
+            var recipesAsStrings = recipes
+                .Select((recipe, index) => // The index is already from the list, so the counter variable isn't necessary.
+                $@"*****{index + 1}*****
+{recipe}");
+
+            Console.WriteLine(string.Join(Environment.NewLine, recipesAsStrings));
+            Console.WriteLine();
         }
     }
 
