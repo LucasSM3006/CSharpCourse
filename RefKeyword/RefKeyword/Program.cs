@@ -1,12 +1,12 @@
 ﻿int number = 5;
 
-AddOneToNumber(number);
+AddOneToNumber(ref number);
 
 Console.WriteLine($"Number is: {number}");
 
 Console.ReadKey();
 
-void AddOneToNumber(int number)
+void AddOneToNumber(ref int number)
 {
     ++number;
 }
