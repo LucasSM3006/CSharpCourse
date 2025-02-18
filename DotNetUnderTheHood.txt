@@ -211,3 +211,77 @@ Memory fragmentation.
 The garbage collector not only removes unused objects, but it also runs memory defragmentation.
 As the GC remove objects from the memory, it creates gaps on it which can't really be filled, so defragmentation needs to happen in order for us to be able to use some addresses again.
 It's like an array of bytes, and as we fill it up and use and then remove things from it, we can't simply slot certain things into it, so we move to the next available space, and once it's full, the GC does its thing, cleaning unused spaces and defragging memory
+
+
+
+
+How does the GC decide what gets removed from memory.
+Mark-And-Sweep algorithm.
+Reference counting.
+Circular reference.
+
+Mark-And-Sweep.
+First marks the objects that can be removed, then removes them.
+It marks them by using reference counting, Gc keeps track of the count of references pointing to some objects, and when the count is zero, it counts it as unreferenced and marks that to be removed from memory.
+There's problems about it, like objects that aren't used anywhere but hold references to each other. (This is circular reference.)
+
+Since that is a possibility, .NET instead uses Tracing.
+Determines if an object is reachable or not by tracing, tracing starts by identifying app roots.
+If an object is reachable from any of the roots, it's included in the graph of the reachable objects, and if not reachable, is removed.
+Circular references can't happen because they're not reachable.
+
+What are application roots?
+Static fields, local variables on the thread's stack. (Remember, each thread has its own stack.)
+
+Summ.
+To decide whether a refernece pointing to an object exists, the GC builds a graph of all objects reachable from root objects of the application.
+Those that are unreachable are marked for exclusion.
+
+Btw, its job is to manage the memory of the heap, not the stack.
+
+
+
+Generations of objects, what are they and how they improve the performance of the GC.
+What the large objects heap is, what it means when an object is pinned.
+
+GC's responsibilites are to identify objects that are no longer used, removing objects from memory, AND defragging the memory.
+
+So, imagine we've got a few objects, and the garbage collector does its thing.
+The objects are still reachable, so the garbage collector does nothing.
+The garbage collector will then run again, and again, and again, and if those same objects are still up and reachable, it likely means that they're long-lived, so, to save the trouble of checking those same objects every time, the GC instead opts to check those objects in particular only every now and again.
+
+Generations of objects.
+When objects are created, they're put in the zero generation.
+If these objects survive through to the next cycle, they will eventually reach first or second generation.
+The garbage collector will most frequently run checks and cleans on the zero generation, less frequently on first generation, and even less frequently on second generation.
+It'll still check them, of course, but not as frequently as freshly made objects.
+
+Think of a logging object created at the main class.
+Its lifetime is as long as the app runs.
+But something like a linq query, for example, will most likely not be used as often as a logging object.
+
+In a well tuned app, most objects die at generation 0.
+Also, during a collection of a generation, all previous generations are also collected.
+So when generation 0 is collected, none other are, but when generation 2 is collected, generation 1 and 0 are collected.
+
+LARGE OBJECT HEAPS (LOH)
+
+When a large object is made, it's immediately assigned to generation 2, mostly because large objects are rarely ever short lived.
+They're also pinned, which means they won't be moved in memory during defragmentation.
+
+Summ.
+GC divides objs into 3 generations, 0, 1, and 2.
+As objects survive, they're moved to the next generations, which makes it easier for the GC to sweep things up.
+
+
+MEMORY LEAKS!
+
+Memory leaks. What they are, and how static fields can increase the risk of them.
+A memory leak is when some memory addresses are not being cleaned, even when the objects occupying them aren't in use. You can see this in action on a C application by allocating space in RAM and then "losing" the pointer to that address. Memory addresses in C are allocated and unallocated by the developer, and since we can no longer know where those spaces are, it becomes impossible to remove things from those spaces. If you're running a loop that fills up your memory, you will eventually have your entire RAM allocated, and unless you restart your computer, you won't be able to use those addresses.
+
+Anyhow, memory leaks happen when objects in memory that aren't used aren't being cleaned, and despite the use of a GC, it still doesn't fully protect us from memory leaks.
+
+One of the most common sources of leaks in .NET are events (more about events later.)
+But also, static fields, since they don't belong to an instance, but rather, a class.
+I assume the reason is because we're not creating any objects that could eventually be cleaned, instead, merely "summoning" it ever so often. Static fields will never change either, so... They'll always be in memory.
+Same for static variables, which can be in non-static classes.
