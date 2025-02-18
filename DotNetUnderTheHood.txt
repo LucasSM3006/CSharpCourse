@@ -285,3 +285,24 @@ One of the most common sources of leaks in .NET are events (more about events la
 But also, static fields, since they don't belong to an instance, but rather, a class.
 I assume the reason is because we're not creating any objects that could eventually be cleaned, instead, merely "summoning" it ever so often. Static fields will never change either, so... They'll always be in memory.
 Same for static variables, which can be in non-static classes.
+(Static fields will be one of the roots for mark-and-sweep algorithm)
+(Static variables are always reachable, and say, you have a static list holding all existing instances of the class you just made, well, those instances will all be stored in the list.)
+
+The reason in particular as to why it creates memory leaks is that the instances within those classes will always be stored within a static variable, even if they're no longer in use. The GC won't clean those spaces because it cannot.
+This is why we should in general avoid static classes.
+
+
+
+DESTRUCTORS (Also known as finalizers.)
+
+It is a special method executed on an object right before it is removed from memory by the GC.
+
+To use destructors, it's the same as a constructor, but it looks like this:
+~Destructor()
+{
+   Console.WriteLine("Destroyed.");
+}
+
+Example in a project called "Destructor"
+
+We should never use destructors, but it is good to know that they exist, it's just generally a bad practice to use destructors, especially since due to the thread's behaviour, well, it'll delete resources at "random".
