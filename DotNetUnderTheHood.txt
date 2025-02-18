@@ -155,3 +155,8 @@ It's necessary to use all types in C# in a uniform way as objects.
 Unboxing is the opposite, returning the boxed value to its original value type.
 It does come with a performance penalty.
 
+PERFORMANCE OF BOXING.
+
+int a = 5; -> size of int: 4 bytes
+object b = 5; -> size of int: 4 bytes, size of reference 4/8 bytes, total size? 8/12 bytes.
+Create new object -> Allocate memory -> Cast on unboxing
