@@ -169,3 +169,45 @@ List doesn't do boxing, it knows the type.
 ArrayList does boxing for each element.
 
 List<Icomparable<int>> {1,2,3,4} -> does boxing because interfaces are reference types.
+
+
+List<int> numbers = new List<int> {1,2,3,4}
+object asObject = numbers;
+
+Naturally, you'd think boxing would happen, but, no.
+Boxing happens when we wrap a value type in a reference type.
+Here, we assign a List object to a variable of object type, but List is a reference type, so no boxing needs to happen. If "numbers" was, for example, an int, it would have to be boxed.
+
+
+
+
+Garbage collector.
+
+Everything in the code has a lifecycle, unusable objects that are no longer used need to be removed from memory so more resources can be allocated.
+In .NET, the heap's memory management is the garbage collector.
+Part of the common language runtime. 
+Languages that are low level, like C or C++, we need to do it ourselves, but C# does it for us.
+
+It doesn't immediately remove things from memory, so much so that you can activate debug mode, go into multiple lines on a functional program, and you'll still have access to the values a variable at the very top holds.
+
+It's hard to tell when it'll do it, but we can force it to happen.
+
+If we put "GC.Collect();" in our code, it'll make the garbage collector do its thing. It's rarely ever used.
+
+The gc gets triggered when
+1. When the OS informs the CLR that there's little memory left
+2. When the amount of memory occupied by objects on the heap surpasses a given threshold
+3. When we do it ourselves with GC.Collect
+So... It works when it is needed.
+The garbage collector works on its own thread, even on single thread apps.
+It may stop other threads wehn working, and itll run in the background.
+Might cause performance issues here and there, especially for things that need to run in real time.
+Short lived objects that we create and destroy quickly that appear too much in, say, a game, would bloat up the heap and the GC would be running constantly. We can avoid creating loads of new objects to help this.
+
+
+
+Memory fragmentation.
+
+The garbage collector not only removes unused objects, but it also runs memory defragmentation.
+As the GC remove objects from the memory, it creates gaps on it which can't really be filled, so defragmentation needs to happen in order for us to be able to use some addresses again.
+It's like an array of bytes, and as we fill it up and use and then remove things from it, we can't simply slot certain things into it, so we move to the next available space, and once it's full, the GC does its thing, cleaning unused spaces and defragging memory
