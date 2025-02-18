@@ -306,3 +306,21 @@ To use destructors, it's the same as a constructor, but it looks like this:
 Example in a project called "Destructor"
 
 We should never use destructors, but it is good to know that they exist, it's just generally a bad practice to use destructors, especially since due to the thread's behaviour, well, it'll delete resources at "random".
+Funnily enough, there's times where the finalizer/destructor won't even be executed, it's super finnicky stuff, so you really shouldn't mess with it too much.
+
+ALTHOUGH... If you are, for whatever reason, working with C# in unsafe memory mode, it could be useful, as the responsibility of allocating and deallocating resources is once again brought to the developer.
+Pointers become available again., and you can even have unsafe functions.
+
+
+
+Dispose method, managed and unmanaged resources.
+
+Dispose comes from the IDisposable interface.
+
+Managed resources are managed by the CLR, GC is aware of them, and it's the normal one, automatic cleanup.
+
+Unmanaged resources aren't managed by the CLR, DB connections, file handles, opened network connections as well, GC isn't aware of them, and manual cleanup is necessary.
+
+Classes that use unmanaged resources should implement the IDisposable interface.
+
+Example in code inside a project called "FileWriter".
