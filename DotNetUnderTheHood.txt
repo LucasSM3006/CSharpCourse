@@ -110,3 +110,48 @@ Value types are sent to the stack due to their simplicity.
 Reference types on the other hand, the value of the reference is sent to the stack while the actual data is sent to the heap.
 (The above explanation is simplified, aka, abstracted.)
 
+
+
+Boxed types.
+Universal types, boxed.
+
+Value types are stored in the stack...
+The references of a custom class, however, are on the stack. (the pointer)
+The actual values, the object, are in the heap.
+
+'object' types, though,
+int number = 5;
+Person person = new Person(value, value);
+object boxedNumber = number;
+boxedNumber is a 'reference' type variable, while its value is a 'value' type
+
+The stack vs heap for that is
+Stack
+number (5), reference to person, reference to boxedNumber
+
+Heap
+Values of person (the object itself), object wrapping the number (object(5))
+
+Boxing happens implicitly each time we assign a value type to an instance of reference type. (Most typically, System.Object.)
+
+Interface types are also reference types, so
+IComparable<int> intAsComparable = number;
+Is a reference type wrapping a value type.
+
+Boxing appears to be wrapping a value type in a reference type.
+Unboxing is converting the boxed value back to the value type.
+Unboxing must be done explicitly,
+int unboxedNumber = (int)boxedNumber;
+
+Boxing can be done implicitly because it'll always work, because everything can be assigned to a system.object type, but unboxing would fail if the value stored inside an object doesn't match the given type, so it must be done explicitly.
+
+An error would be thrown if we did
+short unboxedNumber = (short)boxedNumber;
+instead of the example above, the error?
+InvalidCastException.
+
+Boxing: Wrapping a value type into an instance of System.Object, which is  areference type.
+It's necessary to use all types in C# in a uniform way as objects.
+Unboxing is the opposite, returning the boxed value to its original value type.
+It does come with a performance penalty.
+
