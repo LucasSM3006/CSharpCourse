@@ -160,3 +160,12 @@ PERFORMANCE OF BOXING.
 int a = 5; -> size of int: 4 bytes
 object b = 5; -> size of int: 4 bytes, size of reference 4/8 bytes, total size? 8/12 bytes.
 Create new object -> Allocate memory -> Cast on unboxing
+
+Differences of boxing.
+List<int> {1,2,3,4}
+ArrayList {1,2,3,4}
+
+List doesn't do boxing, it knows the type.
+ArrayList does boxing for each element.
+
+List<Icomparable<int>> {1,2,3,4} -> does boxing because interfaces are reference types.
