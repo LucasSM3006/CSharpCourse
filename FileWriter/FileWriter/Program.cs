@@ -9,6 +9,7 @@ Console.ReadKey();
 
 public class FileWriter
 {
+    // Streamwriter works in a buffer, so it stores everything until we run "Flush" on it.
     private readonly StreamWriter _writer;
     public FileWriter(string filePath)
     {
@@ -17,6 +18,8 @@ public class FileWriter
 
     public void Write(string text)
     {
-        _writer.WriteLine(text + Environment.NewLine);
+        _writer.WriteLine(text);
+        // The flush method in question:
+        _writer.Flush();
     }
 }
