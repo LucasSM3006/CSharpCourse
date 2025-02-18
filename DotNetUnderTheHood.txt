@@ -324,3 +324,6 @@ Unmanaged resources aren't managed by the CLR, DB connections, file handles, ope
 Classes that use unmanaged resources should implement the IDisposable interface.
 
 Example in code inside a project called "FileWriter".
+
+Dispose method is used to free and managed the resources. We need to implement it in classes that implement unmanaged resources.
+We can use 'using' which is also exemplified in the "FileWriter" project.
