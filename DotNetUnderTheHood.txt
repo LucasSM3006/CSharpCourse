@@ -327,3 +327,11 @@ Example in code inside a project called "FileWriter".
 
 Dispose method is used to free and managed the resources. We need to implement it in classes that implement unmanaged resources.
 We can use 'using' which is also exemplified in the "FileWriter" project.
+
+
+
+
+Notes about the assignment...
+
+Well, we changed the variable holding the row data. Before, we used a singular dictionary holding the value of 'object', thus, capable of handling all types of things. The drawback was that the boxing operation meant that simpler types like booleans, integers, and decimals, had to be boxed up into an object type, which considerably increased their memory consumption.
+By instead having four dictionaries holding all possible types of data, we mitigate the boxing issue and store variables in their respective dictionaries.
